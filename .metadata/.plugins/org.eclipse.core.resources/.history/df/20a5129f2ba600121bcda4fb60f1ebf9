@@ -1,0 +1,17 @@
+package testgefproject.editors;
+
+public class NodeFigure extends Figure {
+private Label label;
+private RectangleFigure rectangle;
+public NodeFigure() {
+setLayoutManager(new XYLayout());
+rectangle = new RectangleFigure();
+add(rectangle);
+label = new Label();
+add(label);
+}
+public Label getLabel() {
+return label;
+}
+…
+}

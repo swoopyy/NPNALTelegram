@@ -1,0 +1,25 @@
+package nestedpetrinets.myeditor.editors;
+
+import highlevelnets.npnets.NPnet;
+
+import org.eclipse.gef.commands.Command;
+
+public class NPNetChangeConstraintCommand extends Command {
+	
+	NPnet npnet;
+	Rectangle oldConstraint;
+	Rectangle newConstraint;
+
+	@Override
+	public void execute() {
+		// TODO Auto-generated method stub
+		super.execute();
+	}
+
+	@Override
+	public void undo() {
+		// TODO Auto-generated method stub
+		super.undo();
+	}
+	
+}

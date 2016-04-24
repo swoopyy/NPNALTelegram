@@ -1,0 +1,14 @@
+package testgefproject.editors;
+
+import org.eclipse.gef.EditPart;
+import org.eclipse.gef.EditPartFactory;
+
+public class GraphEditPartFactory implements EditPartFactory {
+
+	@Override
+	public EditPart createEditPart(EditPart context, Object model) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

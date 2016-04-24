@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/NestedPetriNets/src" modelPluginID="NestedPetriNets"
+    modelName="NestedPetriNets" generateSchema="true" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="7.0" copyrightFields="false">
+  <foreignModel>NestedPetriNets.ecore</foreignModel>
+  <genPackages prefix="Highlevelnets" disposableProviderFactory="true" ecorePackage="NestedPetriNets.ecore#/">
+    <nestedGenPackages prefix="Marking" disposableProviderFactory="true" ecorePackage="NestedPetriNets.ecore#//marking">
+      <genClasses ecoreClass="NestedPetriNets.ecore#//marking/Marking">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//marking/Marking/map"/>
+      </genClasses>
+      <genClasses ecoreClass="NestedPetriNets.ecore#//marking/PlaceMarking">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference NestedPetriNets.ecore#//marking/PlaceMarking/place"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//marking/PlaceMarking/marking"/>
+      </genClasses>
+      <genClasses ecoreClass="NestedPetriNets.ecore#//marking/HighLevelPetriNetMarked">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//marking/HighLevelPetriNetMarked/net"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//marking/HighLevelPetriNetMarked/marking"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Tokentypes" disposableProviderFactory="true" ecorePackage="NestedPetriNets.ecore#//tokentypes">
+      <genClasses image="false" ecoreClass="NestedPetriNets.ecore#//tokentypes/TokenType"/>
+      <genClasses ecoreClass="NestedPetriNets.ecore#//tokentypes/TokenTypeAtomic">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//tokentypes/TokenTypeAtomic/instance"/>
+      </genClasses>
+      <genClasses ecoreClass="NestedPetriNets.ecore#//tokentypes/TokenTypeElementNet">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//tokentypes/TokenTypeElementNet/net"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//tokentypes/TokenTypeElementNet/instances"/>
+        <genOperations ecoreOperation="NestedPetriNets.ecore#//tokentypes/TokenTypeElementNet/getInstanceByID">
+          <genParameters ecoreParameter="NestedPetriNets.ecore#//tokentypes/TokenTypeElementNet/getInstanceByID/id"/>
+        </genOperations>
+        <genOperations ecoreOperation="NestedPetriNets.ecore#//tokentypes/TokenTypeElementNet/createInstance"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="NestedPetriNets.ecore#//tokentypes/Token">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//tokentypes/Token/attribute"/>
+        <genOperations ecoreOperation="NestedPetriNets.ecore#//tokentypes/Token/getType"/>
+      </genClasses>
+      <genClasses ecoreClass="NestedPetriNets.ecore#//tokentypes/TokenAtomic">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference NestedPetriNets.ecore#//tokentypes/TokenAtomic/type"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference NestedPetriNets.ecore#//tokentypes/TokenAtomic/value"/>
+      </genClasses>
+      <genClasses ecoreClass="NestedPetriNets.ecore#//tokentypes/TokenNet">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NestedPetriNets.ecore#//tokentypes/TokenNet/idValue"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference NestedPetriNets.ecore#//tokentypes/TokenNet/typeTokenNet"/>
+      </genClasses>
+      <genClasses ecoreClass="NestedPetriNets.ecore#//tokentypes/TokenAttribute">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NestedPetriNets.ecore#//tokentypes/TokenAttribute/type"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NestedPetriNets.ecore#//tokentypes/TokenAttribute/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NestedPetriNets.ecore#//tokentypes/TokenAttribute/value"/>
+      </genClasses>
+      <genClasses ecoreClass="NestedPetriNets.ecore#//tokentypes/ElementNet">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//tokentypes/ElementNet/marking"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//tokentypes/ElementNet/type"/>
+      </genClasses>
+      <genClasses ecoreClass="NestedPetriNets.ecore#//tokentypes/Atom"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Tokenexpressions" disposableProviderFactory="true"
+        ecorePackage="NestedPetriNets.ecore#//tokenexpressions">
+      <genClasses ecoreClass="NestedPetriNets.ecore#//tokenexpressions/TokenWeight">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference NestedPetriNets.ecore#//tokenexpressions/TokenWeight/token"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NestedPetriNets.ecore#//tokenexpressions/TokenWeight/weight"/>
+      </genClasses>
+      <genClasses ecoreClass="NestedPetriNets.ecore#//tokenexpressions/TokenMultisetExpression">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference NestedPetriNets.ecore#//tokenexpressions/TokenMultisetExpression/type"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//tokenexpressions/TokenMultisetExpression/value"/>
+      </genClasses>
+      <genClasses ecoreClass="NestedPetriNets.ecore#//tokenexpressions/TokenMultiSet">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//tokenexpressions/TokenMultiSet/supportSet"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//tokenexpressions/TokenMultiSet/weight"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference NestedPetriNets.ecore#//tokenexpressions/TokenMultiSet/type"/>
+      </genClasses>
+      <genClasses ecoreClass="NestedPetriNets.ecore#//tokenexpressions/Variable">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NestedPetriNets.ecore#//tokenexpressions/Variable/name"/>
+      </genClasses>
+      <genClasses ecoreClass="NestedPetriNets.ecore#//tokenexpressions/TokenVariadicExpression">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//tokenexpressions/TokenVariadicExpression/monoms"/>
+      </genClasses>
+      <genClasses ecoreClass="NestedPetriNets.ecore#//tokenexpressions/Monom">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//tokenexpressions/Monom/var"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NestedPetriNets.ecore#//tokenexpressions/Monom/power"/>
+      </genClasses>
+      <genClasses ecoreClass="NestedPetriNets.ecore#//tokenexpressions/TokenExpressionBinding">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference NestedPetriNets.ecore#//tokenexpressions/TokenExpressionBinding/expression"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//tokenexpressions/TokenExpressionBinding/value"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Hlpn" disposableProviderFactory="true" ecorePackage="NestedPetriNets.ecore#//hlpn">
+      <genClasses ecoreClass="NestedPetriNets.ecore#//hlpn/HighLevelPetriNet">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//hlpn/HighLevelPetriNet/places"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//hlpn/HighLevelPetriNet/transitions"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//hlpn/HighLevelPetriNet/arcsPT"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//hlpn/HighLevelPetriNet/arcsTP"/>
+      </genClasses>
+      <genClasses ecoreClass="NestedPetriNets.ecore#//hlpn/Place">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//hlpn/Place/net"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference NestedPetriNets.ecore#//hlpn/Place/outArcs"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference NestedPetriNets.ecore#//hlpn/Place/inArcs"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference NestedPetriNets.ecore#//hlpn/Place/type"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NestedPetriNets.ecore#//hlpn/Place/name"/>
+        <genFeatures property="Readonly" createChild="false" propertyCategory="" propertyDescription=""
+            ecoreFeature="ecore:EAttribute NestedPetriNets.ecore#//hlpn/Place/uid"/>
+      </genClasses>
+      <genClasses ecoreClass="NestedPetriNets.ecore#//hlpn/Transition">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//hlpn/Transition/net"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference NestedPetriNets.ecore#//hlpn/Transition/inArcs"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference NestedPetriNets.ecore#//hlpn/Transition/outArcs"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NestedPetriNets.ecore#//hlpn/Transition/name"/>
+      </genClasses>
+      <genClasses ecoreClass="NestedPetriNets.ecore#//hlpn/ArcPT">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//hlpn/ArcPT/net"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference NestedPetriNets.ecore#//hlpn/ArcPT/inPlace"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference NestedPetriNets.ecore#//hlpn/ArcPT/outTransition"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//hlpn/ArcPT/inscription"/>
+      </genClasses>
+      <genClasses ecoreClass="NestedPetriNets.ecore#//hlpn/ArcTP">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//hlpn/ArcTP/net"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference NestedPetriNets.ecore#//hlpn/ArcTP/inTransition"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference NestedPetriNets.ecore#//hlpn/ArcTP/outPlace"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//hlpn/ArcTP/inscription"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Npnets" disposableProviderFactory="true" ecorePackage="NestedPetriNets.ecore#//npnets">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="NestedPetriNets.ecore#//npnets/ESynchronizationKind">
+        <genEnumLiterals ecoreEnumLiteral="NestedPetriNets.ecore#//npnets/ESynchronizationKind/Autonomous"/>
+        <genEnumLiterals ecoreEnumLiteral="NestedPetriNets.ecore#//npnets/ESynchronizationKind/VerticalSynchronization"/>
+        <genEnumLiterals ecoreEnumLiteral="NestedPetriNets.ecore#//npnets/ESynchronizationKind/HorizontalSynchronization"/>
+      </genEnums>
+      <genClasses ecoreClass="NestedPetriNets.ecore#//npnets/PetriNetNested">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//npnets/PetriNetNested/netSystem"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//npnets/PetriNetNested/typeElementNet"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//npnets/PetriNetNested/typeAtomic"/>
+      </genClasses>
+      <genClasses ecoreClass="NestedPetriNets.ecore#//npnets/PetriNetNestedMarked">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//npnets/PetriNetNestedMarked/net"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//npnets/PetriNetNestedMarked/marking"/>
+      </genClasses>
+      <genClasses ecoreClass="NestedPetriNets.ecore#//npnets/Synchronization">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NestedPetriNets.ecore#//npnets/Synchronization/kind"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NestedPetriNets.ecore#//npnets/Synchronization/key"/>
+      </genClasses>
+      <genClasses ecoreClass="NestedPetriNets.ecore#//npnets/TransitionSynchronized">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference NestedPetriNets.ecore#//npnets/TransitionSynchronized/synchronization"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Common" disposableProviderFactory="true" ecorePackage="NestedPetriNets.ecore#//common">
+      <genClasses ecoreClass="NestedPetriNets.ecore#//common/Identifier">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute NestedPetriNets.ecore#//common/Identifier/id"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

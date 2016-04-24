@@ -1,0 +1,22 @@
+package testgefproject.editors;
+
+public class ContentProvider {
+	public static final ContentProvider INSTANCE =
+			new ContentProvider();
+	public Graph newSampleGraph() {
+		Graph result = new Graph();
+		result.addNode(newNode(200, 150, 65, 35, "first"));
+		result.addNode(newNode(300, 250, 65, 35, "second"));
+		result.addNode(newNode(100, 300, 65, 35, "third"));
+		return result;
+	}
+	private Node newNode(
+			int x, int y, int width, int height, String name) {
+		Node result = new Node();
+		result.setConstraint(
+				new Rectangle(new Point(x, y),
+						new Dimension(width, height)));
+		result.setName(name);
+		return result;
+	}
+}

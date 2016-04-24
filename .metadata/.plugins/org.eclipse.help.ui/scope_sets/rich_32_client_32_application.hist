@@ -1,0 +1,5 @@
+#Thu Apr 18 00:55:40 GMT+04:00 2013
+__DEFAULT__=false
+org.eclipse.sdk.Eclipse.master=true
+org.eclipse.help.ui.localSearch.master=true
+expression=rich client application

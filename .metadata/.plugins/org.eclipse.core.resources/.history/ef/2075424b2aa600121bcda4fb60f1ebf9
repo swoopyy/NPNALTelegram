@@ -1,0 +1,27 @@
+package testgefproject.editors;
+
+import org.eclipse.draw2d.FreeformLayer;
+import org.eclipse.draw2d.FreeformLayout;
+import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LineBorder;
+import org.eclipse.gef.editparts.AbstractGraphicalEditPart;
+
+public class GraphEditPart extends AbstractGraphicalEditPart {
+
+	public GraphEditPart(Graph graph) {
+		setModel(graph);
+	}
+
+	@Override
+	protected IFigure createFigure() {
+		FreeformLayer layer = new FreeformLayer();
+		layer.setLayoutManager(new FreeformLayout());
+		layer.setBorder(new LineBorder(3));
+		return null;
+	}
+
+	@Override
+	protected void createEditPolicies() {
+	}
+
+}

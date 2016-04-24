@@ -1,0 +1,10 @@
+1370297733312	Rename local variable 'd'
+1370302191218	Rename type 'NPNSymbolResizeToCommand'
+1370303913379	Rename type 'NPNSymbolTokenDeleteCommand'
+1370304422764	Rename local variable 'node'
+1370305322945	Rename method 'createResizeToContents'
+1370305683755	Infer generic type arguments
+1370380998135	Rename field 'RESIZE_TO_CONTENTS'
+1370381050049	Move compilation unit
+1370381056686	Delete element
+1370458849538	Extract local variable 'createNPNSymbolPlaceSN'

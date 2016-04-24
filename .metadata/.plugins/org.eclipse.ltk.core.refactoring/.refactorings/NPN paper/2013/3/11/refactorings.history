@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 2 elements to &apos;NestedPetriNets&apos;&#x0D;&#x0A;- Original project: &apos;NPN paper&apos;&#x0D;&#x0A;- Destination element: &apos;NestedPetriNets&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     NestedPetriNets.ecorediag&#x0D;&#x0A;     NestedPetriNets.ecore&#x0D;&#x0A;- Update references to refactored element" description="Move files" destination="=NestedPetriNets" element1="NestedPetriNets.ecorediag" element2="NestedPetriNets.ecore" files="2" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1363442713985" units="0" version="1.0"/>
+</session>

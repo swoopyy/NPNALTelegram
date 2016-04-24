@@ -1,0 +1,39 @@
+package nestedpetrinets.myeditor.editors;
+
+import highlevelnets.npnets.NPnet;
+import highlevelnets.npnets.NPnetMarked;
+
+import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.editparts.AbstractGraphicalEditPart;
+
+public class NPNetEditPart extends AbstractGraphicalEditPart {
+
+	Rectangle r = new Rectangle();
+
+	public NPNetEditPart(NPnet model) {
+		setModel(model);
+	}
+
+	@Override
+	protected IFigure createFigure() {
+		NPNetFigure res = new NPNetFigure();
+		return res;
+	}
+
+	@Override
+	protected void createEditPolicies() {
+		installEditPolicy(EditPolicy.LAYOUT_ROLE,
+				new NPNetXYLayoutEditPolicy());
+	}
+	
+	public void refreshVisuals() {
+		NPNetFigure figure = (NPNetFigure)getFigure();
+		NPnet npnet = (NPnet)getModel();
+		NPNetMarkedEditPart parent = (NPNetMarkedEditPart)getParent();
+		figure.getLabel().setText(npnet.getName());
+		r = new Rectangle(50,50,100,100);
+		parent.setLayoutConstraint(this, figure, r);
+	}
+}

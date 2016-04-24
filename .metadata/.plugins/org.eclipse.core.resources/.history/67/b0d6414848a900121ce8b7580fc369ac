@@ -1,0 +1,33 @@
+package nestedpetrinets.myeditor.editors;
+
+import highlevelnets.npnets.NPnet;
+
+import org.eclipse.gef.EditPart;
+import org.eclipse.gef.commands.Command;
+import org.eclipse.gef.editpolicies.XYLayoutEditPolicy;
+import org.eclipse.gef.requests.ChangeBoundsRequest;
+import org.eclipse.gef.requests.CreateRequest;
+
+public class NPNetXYLayoutEditPolicy extends XYLayoutEditPolicy {
+
+	@Override
+	protected Command createChangeConstraintCommand(
+			ChangeBoundsRequest request, EditPart child, Object constraint) {
+		NPNetChangeConstraintCommand changeConstraintCommand = 
+				new NPNetChangeConstraintCommand();
+		changeConstraintCommand.setNPNetEditPart((NPnet)child.getModel());
+		changeConstraintCommand.setNewConstraint((Rectangle)constraint);
+		
+		return changeConstraintCommand;
+		
+		//return super.createChangeConstraintCommand(request, child, constraint);
+	}
+
+	@Override
+	protected Command getCreateCommand(CreateRequest request) {
+		return null;
+	}
+	
+	
+
+}

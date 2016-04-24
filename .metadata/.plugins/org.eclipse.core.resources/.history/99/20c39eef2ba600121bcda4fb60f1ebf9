@@ -1,0 +1,7 @@
+package testgefproject.editors;
+
+import org.eclipse.gef.editparts.AbstractGraphicalEditPart;
+
+public class NodeEditPart extends AbstractGraphicalEditPart {
+
+}

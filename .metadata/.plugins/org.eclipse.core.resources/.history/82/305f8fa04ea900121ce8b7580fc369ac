@@ -1,0 +1,49 @@
+package nestedpetrinets.myeditor.editors;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import highlevelnets.marking.Marking;
+import highlevelnets.npnets.NPnet;
+import highlevelnets.npnets.NPnetMarked;
+
+import org.eclipse.draw2d.FreeformLayer;
+import org.eclipse.draw2d.FreeformLayout;
+import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LineBorder;
+import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.editparts.AbstractGraphicalEditPart;
+
+public class NPNetMarkedEditPart extends AbstractGraphicalEditPart {
+	
+	public NPNetMarkedEditPart (NPnetMarked npnMarked) {
+		setModel(npnMarked);
+	}
+	
+	protected List getModelChildren() {
+		List list = new ArrayList();
+		NPnet npnet = ((NPnetMarked)getModel()).getNet();
+		if (npnet != null) {
+			list.add(npnet);
+		}
+		Marking marking = ((NPnetMarked)getModel()).getMarking();
+		if (marking != null) {
+			list.add(marking);
+		}
+		
+		return list;
+	}
+
+	@Override
+	protected IFigure createFigure() {
+		FreeformLayer layer = new FreeformLayer();
+		layer.setLayoutManager(new FreeformLayout());
+		layer.setBorder(new LineBorder(3));
+		return layer;
+	}
+
+	@Override
+	protected void createEditPolicies() {
+		
+	}
+}

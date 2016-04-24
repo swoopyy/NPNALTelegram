@@ -1,0 +1,14 @@
+package goodeditor.editors;
+
+import org.eclipse.ui.editors.text.TextEditor;
+
+public class NPNEditor extends TextEditor {
+
+	public NPNEditor() {
+		super();
+	}
+	public void dispose() {
+		super.dispose();
+	}
+
+}

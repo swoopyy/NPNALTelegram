@@ -1,0 +1,35 @@
+package nestedpetrinets.myeditor.editors;
+
+import highlevelnets.npnets.NPnet;
+
+import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.gef.commands.Command;
+
+public class NPNetChangeConstraintCommand extends Command {
+	
+	NPnet npnet;
+	Rectangle oldConstraint;
+	Rectangle newConstraint;
+
+	@Override
+	public void execute() {
+		if (oldConstraint == null) {
+			oldConstraint = new Rectangle(npnet.)
+		}
+		super.execute();
+	}
+
+	@Override
+	public void undo() {
+		super.undo();
+	}
+
+	public void setNPNet(NPnet model) {
+		npnet = model;		
+	}
+
+	public void setNewConstraint(Rectangle constraint) {
+		this.newConstraint = constraint;
+	}
+	
+}

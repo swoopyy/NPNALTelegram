@@ -1,0 +1,7 @@
+package nestedpetrinets.myeditor.editors;
+
+import org.eclipse.gef.commands.Command;
+
+public class NPNetChangeConstraintCommand extends Command {
+
+}

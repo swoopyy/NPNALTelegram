@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="nets" nsURI="http://nets.mathtech.ru/1.0" nsPrefix="nets">
+  <eAnnotations source="EAnnotation0" references="#//TokenNet">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="?? Probably we don't need idValue in TokenNet class?&#xD;&#xA;If a reference to net-value is enough?"/>
+    </eAnnotations>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="TokenType" abstract="true">
+    <eOperations name="createInstance" eType="#//Token"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameType" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
+        defaultValueLiteral="tokentype"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TokenTypeAtomic" eSuperTypes="#//TokenType">
+    <eOperations name="getValue" lowerBound="1" eType="#//TokenAtomic"/>
+    <eOperations name="createInstance" lowerBound="1" eType="#//TokenAtomic"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TokenTypeElementNet" eSuperTypes="#//TokenType">
+    <eOperations name="getTokenByID" lowerBound="1">
+      <eParameters name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eOperations name="createInstance"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Token" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//TokenType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TokenAtomic" eSuperTypes="#//Token">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//TokenTypeAtomic"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TokenNet" eSuperTypes="#//Token">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type2" lowerBound="1" eType="#//TokenTypeElementNet"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="idValue" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeTokenNet" lowerBound="1"
+        eType="#//TokenTypeElementNet"/>
+  </eClassifiers>
+</ecore:EPackage>

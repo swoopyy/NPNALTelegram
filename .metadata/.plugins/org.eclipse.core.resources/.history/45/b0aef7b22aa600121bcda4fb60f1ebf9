@@ -1,0 +1,6 @@
+package testgefproject.editors;
+
+public class Graph {
+	List<Node> list;
+	
+}

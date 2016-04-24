@@ -1,0 +1,107 @@
+what,kind,bundleId,bundleVersion,description,time
+started,bundle,org.eclipse.uml2.uml.edit,3.0.0.v200905041045,"org.eclipse.uml2.uml.edit",1363253972992
+started,bundle,org.eclipse.draw2d,3.5.2.v20091126-1908,"org.eclipse.draw2d",1363253972992
+started,bundle,org.eclipse.emf.common,2.5.0.v200906151043,"org.eclipse.emf.common",1363253972992
+started,bundle,org.eclipse.emf.edit,2.5.0.v200906151043,"org.eclipse.emf.edit",1363253972992
+started,bundle,org.eclipse.uml2.uml,3.0.1.v200908281330,"org.eclipse.uml2.uml",1363253972992
+started,bundle,org.eclipse.emf.ecore,2.5.0.v200906151043,"org.eclipse.emf.ecore",1363253972992
+started,bundle,org.eclipse.emf.ecore.edit,2.5.0.v200906151043,"org.eclipse.emf.ecore.edit",1363253972992
+started,bundle,org.eclipse.emf.ecore.xmi,2.5.0.v200906151043,"org.eclipse.emf.ecore.xmi",1363253972992
+started,bundle,org.eclipse.mylyn.bugzilla.core,3.8.2.v20120916-1200,"org.eclipse.mylyn.bugzilla.core",1363253972992
+started,bundle,org.eclipse.mylyn.bugzilla.ui,3.8.2.v20120916-1200,"org.eclipse.mylyn.bugzilla.ui",1363253972992
+started,bundle,org.eclipse.mylyn.commons.core,3.8.2.v20120916-1200,"org.eclipse.mylyn.commons.core",1363253972992
+started,bundle,org.eclipse.mylyn.commons.net,3.8.2.v20120916-1200,"org.eclipse.mylyn.commons.net",1363253972992
+started,bundle,org.eclipse.mylyn.commons.notifications.core,1.0.2.v20120916-1200,"org.eclipse.mylyn.commons.notifications.core",1363253972993
+started,bundle,org.eclipse.mylyn.commons.notifications.feed,1.0.2.v20120916-1200,"org.eclipse.mylyn.commons.notifications.feed",1363253972993
+started,bundle,org.eclipse.mylyn.commons.notifications.ui,1.0.2.v20120916-1200,"org.eclipse.mylyn.commons.notifications.ui",1363253972993
+started,bundle,org.eclipse.mylyn.commons.ui,3.8.2.v20120916-1200,"org.eclipse.mylyn.commons.ui",1363253972994
+started,bundle,org.eclipse.mylyn.commons.workbench,3.8.2.v20120916-1200,"org.eclipse.mylyn.commons.workbench",1363253972994
+started,bundle,org.eclipse.mylyn.context.core,3.8.2.v20120916-1200,"org.eclipse.mylyn.context.core",1363253972994
+started,bundle,org.eclipse.mylyn.context.tasks.ui,3.8.2.v20120916-1200,"org.eclipse.mylyn.context.tasks.ui",1363253972994
+started,bundle,org.eclipse.mylyn.monitor.ui,3.8.2.v20120916-1200,"org.eclipse.mylyn.monitor.ui",1363253972994
+started,bundle,org.eclipse.mylyn.tasks.index.core,3.8.2.v20120916-1200,"org.eclipse.mylyn.tasks.index.core",1363253972995
+started,bundle,org.eclipse.mylyn.tasks.ui,3.8.2.v20120916-1200,"org.eclipse.mylyn.tasks.ui",1363253972995
+started,bundle,org.eclipse.mylyn.team.ui,3.8.2.v20120916-1200,"org.eclipse.mylyn.team.ui",1363253972995
+os,sysinfo,,,"win32",1363253973000
+arch,sysinfo,,,"x86",1363253973000
+ws,sysinfo,,,"win32",1363253973000
+locale,sysinfo,,,"en_US",1363253973000
+processors,sysinfo,,,"2",1363253973000
+java.runtime.name,sysinfo,,,"Java(TM) SE Runtime Environment",1363253973000
+java.runtime.version,sysinfo,,,"1.7.0_17-b02",1363253973000
+java.specification.name,sysinfo,,,"Java Platform API Specification",1363253973000
+java.specification.vendor,sysinfo,,,"Oracle Corporation",1363253973000
+java.specification.version,sysinfo,,,"1.7",1363253973000
+java.vendor,sysinfo,,,"Oracle Corporation",1363253973000
+java.version,sysinfo,,,"1.7.0_17",1363253973000
+java.vm.info,sysinfo,,,"mixed mode, sharing",1363253973000
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1363253973000
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1363253973000
+java.vm.specification.vendor,sysinfo,,,"Oracle Corporation",1363253973000
+java.vm.specification.version,sysinfo,,,"1.7",1363253973000
+java.vm.vendor,sysinfo,,,"Oracle Corporation",1363253973000
+java.vm.version,sysinfo,,,"23.7-b01",1363253973000
+started,bundle,org.eclipse.epp.usagedata.ui,1.1.1.R201001291118,"org.eclipse.epp.usagedata.ui",1363253974148
+started,bundle,org.eclipse.jdt.apt.core,3.3.202.R35x_v20091130-2300,"org.eclipse.jdt.apt.core",1363253974183
+started,bundle,org.eclipse.jdt.apt.pluggable.core,1.0.201.R35x_v20090925-1100,"org.eclipse.jdt.apt.pluggable.core",1363253974268
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1363253976447
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1363254159689
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1363254161341
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1363254165955
+started,bundle,org.eclipse.wst.sse.core,1.1.402.v201001251516,"org.eclipse.wst.sse.core",1363254171854
+started,bundle,org.eclipse.ltk.core.refactoring,3.5.0.v20090513-2000,"org.eclipse.ltk.core.refactoring",1363254180164
+started,bundle,org.eclipse.ltk.ui.refactoring,3.4.101.r352_v20100209,"org.eclipse.ltk.ui.refactoring",1363254182299
+started,bundle,org.eclipse.compare.core,3.5.0.I20090430-0408,"org.eclipse.compare.core",1363254182605
+opened,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1363254183239
+started,bundle,org.eclipse.core.variables,3.2.200.v20090521,"org.eclipse.core.variables",1363254183485
+activated,editor,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1363254183746
+started,bundle,org.eclipse.jdt.junit,3.5.2.r352_v20100113-0800,"org.eclipse.jdt.junit",1363254184530
+deactivated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1363254207636
+activated,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1363254209074
+closed,workbench,org.eclipse.ui.workbench,3.5.2.M20100113-0800,"",1363254209444
+stopped,bundle,com.omondo.uml.std,3.5.2.v20100509,"com.omondo.uml.std",1363254210197
+stopped,bundle,org.eclipse.mylyn.ide.ant,3.8.2.v20120916-1200,"org.eclipse.mylyn.ide.ant",1363254210197
+stopped,bundle,org.eclipse.ant.ui,3.4.2.v20091204_r352,"org.eclipse.ant.ui",1363254210197
+stopped,bundle,org.eclipse.compare.win32,1.0.0.I20090430-0408,"org.eclipse.compare.win32",1363254210197
+stopped,bundle,org.eclipse.mylyn.java.tasks,3.8.2.v20120916-1200,"org.eclipse.mylyn.java.tasks",1363254210197
+stopped,bundle,org.eclipse.mylyn.java.ui,3.8.2.v20120916-1200,"org.eclipse.mylyn.java.ui",1363254210197
+stopped,bundle,org.eclipse.jdt.junit,3.5.2.r352_v20100113-0800,"org.eclipse.jdt.junit",1363254210212
+stopped,bundle,org.eclipse.jdt.apt.ui,3.3.200.v20090930-2100_R35x,"org.eclipse.jdt.apt.ui",1363254210212
+stopped,bundle,com.omondo.uml.docgen,3.5.2.v20100509,"com.omondo.uml.docgen",1363254210212
+stopped,bundle,com.omondo.uml.core,3.5.2.v20100509,"com.omondo.uml.core",1363254210212
+stopped,bundle,org.eclipse.jdt.debug.ui,3.4.1.v20090811_r351,"org.eclipse.jdt.debug.ui",1363254210212
+stopped,bundle,com.omondo.uml.wtp.ui,1.4.0.v20100509,"com.omondo.uml.wtp.ui",1363254210212
+stopped,bundle,com.omondo.uml.jee,1.4.0.v20100509,"com.omondo.uml.jee",1363254210212
+stopped,bundle,com.omondo.uml.wtp,1.4.0.v20100509,"com.omondo.uml.wtp",1363254210212
+stopped,bundle,org.eclipse.pde.runtime,3.4.100.v20090731,"org.eclipse.pde.runtime",1363254210212
+stopped,bundle,org.eclipse.jdt.ui,3.5.2.r352_v20100106-0800,"org.eclipse.jdt.ui",1363254210231
+stopped,bundle,org.eclipse.wst.dtd.ui,1.0.400.v200904300717,"org.eclipse.wst.dtd.ui",1363254210231
+stopped,bundle,org.eclipse.wst.xsd.ui,1.2.204.v200909021537,"org.eclipse.wst.xsd.ui",1363254210231
+stopped,bundle,org.eclipse.wst.xml.ui,1.1.2.v201001222130,"org.eclipse.wst.xml.ui",1363254210231
+stopped,bundle,org.eclipse.wst.common.ui,1.1.402.v200901262305,"org.eclipse.wst.common.ui",1363254210231
+stopped,bundle,org.eclipse.wst.sse.ui,1.1.102.v200910200227,"org.eclipse.wst.sse.ui",1363254210231
+stopped,bundle,org.eclipse.search,3.5.1.r351_v20090708-0800,"org.eclipse.search",1363254210257
+stopped,bundle,org.eclipse.emf.compare.ui,1.0.1.v200909161031,"org.eclipse.emf.compare.ui",1363254210257
+stopped,bundle,org.eclipse.ltk.ui.refactoring,3.4.101.r352_v20100209,"org.eclipse.ltk.ui.refactoring",1363254210257
+stopped,bundle,org.eclipse.team.cvs.ui,3.3.202.r35x_20090930-0800,"org.eclipse.team.cvs.ui",1363254210258
+stopped,bundle,org.eclipse.mylyn.team.ui,3.8.2.v20120916-1200,"org.eclipse.mylyn.team.ui",1363254210258
+stopped,bundle,org.eclipse.team.ui,3.5.0.I20090430-0408,"org.eclipse.team.ui",1363254210258
+stopped,bundle,org.eclipse.mylyn.bugzilla.ui,3.8.2.v20120916-1200,"org.eclipse.mylyn.bugzilla.ui",1363254210258
+stopped,bundle,org.eclipse.mylyn.ide.ui,3.8.2.v20120916-1200,"org.eclipse.mylyn.ide.ui",1363254210258
+stopped,bundle,org.eclipse.mylyn.resources.ui,3.8.2.v20120916-1200,"org.eclipse.mylyn.resources.ui",1363254210259
+stopped,bundle,org.eclipse.mylyn.context.tasks.ui,3.8.2.v20120916-1200,"org.eclipse.mylyn.context.tasks.ui",1363254210259
+stopped,bundle,org.eclipse.mylyn.help.ui,3.8.2.v20120916-1200,"org.eclipse.mylyn.help.ui",1363254210259
+stopped,bundle,org.eclipse.mylyn.tasks.bugs,3.8.2.v20120916-1200,"org.eclipse.mylyn.tasks.bugs",1363254210259
+stopped,bundle,org.eclipse.mylyn.wikitext.tasks.ui,1.7.2.v20120916-1200,"org.eclipse.mylyn.wikitext.tasks.ui",1363254210259
+stopped,bundle,org.eclipse.mylyn.tasks.ui,3.8.2.v20120916-1200,"org.eclipse.mylyn.tasks.ui",1363254210259
+stopped,bundle,org.eclipse.compare,3.5.2.r35x_20100113-0800,"org.eclipse.compare",1363254210259
+stopped,bundle,org.eclipse.ui.externaltools,3.2.0.v20090504,"org.eclipse.ui.externaltools",1363254210259
+stopped,bundle,org.eclipse.debug.ui,3.5.2.v20091028_r352,"org.eclipse.debug.ui",1363254210259
+stopped,bundle,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console",1363254210259
+stopped,bundle,org.eclipse.xsd.editor,2.5.0.v200906151043,"org.eclipse.xsd.editor",1363254210259
+stopped,bundle,org.eclipse.mylyn.commons.notifications.ui,1.0.2.v20120916-1200,"org.eclipse.mylyn.commons.notifications.ui",1363254210260
+stopped,bundle,org.eclipse.mylyn.commons.repositories.ui,1.0.2.v20120916-1200,"org.eclipse.mylyn.commons.repositories.ui",1363254210260
+stopped,bundle,org.eclipse.mylyn.context.ui,3.8.2.v20120916-1200,"org.eclipse.mylyn.context.ui",1363254210260
+stopped,bundle,org.eclipse.mylyn.commons.workbench,3.8.2.v20120916-1200,"org.eclipse.mylyn.commons.workbench",1363254210260
+stopped,bundle,org.eclipse.mylyn.wikitext.ui,1.7.2.v20120916-1200,"org.eclipse.mylyn.wikitext.ui",1363254210260
+stopped,bundle,org.eclipse.ui.editors,3.5.0.v20090527-2000,"org.eclipse.ui.editors",1363254210260

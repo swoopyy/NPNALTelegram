@@ -1,0 +1,30 @@
+1367418459973	Move compilation unit
+1367418462968	Delete element
+1367418484828	Rename package 'ru.mathtech.npntool.editor.figure'
+1367418512860	Delete element
+1367445687675	Move compilation unit
+1367445692952	Delete element
+1367445889014	Rename field 'label'
+1367445990972	Rename field 'label'
+1367449330672	Rename local variable 'symbolPlace'
+1367539990458	Rename type 'ContentProvider'
+1367540634476	Rename local variable 'npnDiagramNetSystem'
+1367540725269	Delete element
+1367618725879	Move compilation unit
+1367621343865	Rename field 'newNode'
+1367622909313	Move compilation unit
+1367667343046	Rename type 'NPNPlaceFactory'
+1367667386025	Rename type 'NPNTransitionFactory'
+1367669013380	Rename local variable 'node'
+1367689630914	Move compilation unit
+1367689753377	Delete element
+1367689766103	Rename type 'NPNNodeChangeConstraintCommand'
+1367690519774	Rename field 'hlpn'
+1367691103217	Rename field 'GR'
+1367708158828	Rename type 'NPNNodeDirectEditPolicy'
+1367708366354	Rename type 'NPNSymbolNodeDirectEditManager'
+1367708379566	Rename type 'NPNSymbolNodeCellEditorLocator'
+1367708397854	Rename type 'NPNSymbolNodeChangeConstraintCommand'
+1367708408188	Rename type 'NPNSymbolNodeRenameCommand'
+1367709071916	Rename type 'NPNSymbolNodeDirectEditPolicy'
+1367752940958	Rename type 'NPNSymbolNodeDeleteCommand'

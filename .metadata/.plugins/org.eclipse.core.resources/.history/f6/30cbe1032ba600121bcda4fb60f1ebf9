@@ -1,0 +1,22 @@
+package testgefproject.editors;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Graph {
+	List<Node> nodes;
+
+	public void addNode(Node node) {
+		getNodes().add(node);
+		this.nodes = nodes;
+	}
+
+	public List<Node> getNodes() {
+		if (nodes == null) {
+			nodes = new ArrayList<Node>();
+		}
+		return nodes;
+	}
+
+	
+}

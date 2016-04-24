@@ -1,0 +1,405 @@
+package npnets.simulator.simulate;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Random;
+
+import npnets.simulator.commands.PlaceAddTokenCommand;
+import npnets.simulator.editors.NPNBindVariablesView;
+import npnets.simulator.exceptions.DeadlineViolationException;
+import npnets.simulator.exceptions.NoBindingAvaliableException;
+import npnets.simulator.exceptions.NoOutputBindingAvaliableException;
+import npnets.simulator.exceptions.WrongModelException;
+
+import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.jface.window.Window;
+import org.eclipse.swt.widgets.Dialog;
+import org.eclipse.ui.IViewPart;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.dialogs.ListDialog;
+
+import ru.mathtech.npntool.npnets.highlevelnets.hlpn.ArcPT;
+import ru.mathtech.npntool.npnets.highlevelnets.hlpn.ArcTP;
+import ru.mathtech.npntool.npnets.highlevelnets.hlpn.Node;
+import ru.mathtech.npntool.npnets.highlevelnets.hlpn.Transition;
+import ru.mathtech.npntool.npnets.highlevelnets.npnets.model.NPnetMarked;
+import ru.mathtech.npntool.npnets.highlevelnets.npnets.model.TransitionSynchronized;
+import ru.mathtech.npntool.npnets.highlevelnets.tokenexpressions.Variable;
+import ru.mathtech.npntool.npnets.highlevelnets.tokentypes.ElementNetMarked;
+import ru.mathtech.npntool.npnets.highlevelnets.tokentypes.Token;
+import ru.mathtech.npntool.npnets.highlevelnets.tokentypes.TokenNet;
+import ru.mathtech.npntool.npnets.highlevelnets.tokentypes.TokenType;
+import ru.mathtech.npntool.npnets.highlevelnets.tokentypes.TokenTypeElementNet;
+import ru.mathtech.npntool.npnets.highlevelnets.tokentypes.TokenTypesFactory;
+
+public class Simulator {
+	public static NPnetMarked net;
+	private List<Binding> bindings = new ArrayList<Binding>();
+	private List<OutputBinding> outputBindings = new ArrayList<OutputBinding>();
+	public BindingManager bindingManager;
+	public static boolean userDriven = false;
+	public static Map<Variable, TokenType> variableMap;
+	public static MarkingAdapterState markingHistory;
+	public static boolean changed;
+	public static boolean userBindings;
+	private static List<Token> output;
+	public MarkingAdapter marking;
+
+	public MarkingAdapter getMarking() {
+		if (marking == null)
+			try {
+				marking = new SystemMarkingAdapter(net);
+			} catch (WrongModelException e) {
+				new Report().appendLineToReport("Wrong model! You probably forgot to add marking to your net.", true);
+				e.printStackTrace();
+			}
+		return marking;
+	}
+
+	public void setMarking(MarkingAdapter marking) {
+		this.marking = marking;
+	}
+
+	public static Map<Variable, TokenType> getVariableMap() {
+		if (variableMap.size() == 0) {
+			fillVariableMapDefault();
+		}
+		return variableMap;
+	}
+
+	public Transition bindVariables(Transition trans) throws NoBindingAvaliableException {
+		if (trans == null) {
+			List<Node> nodes = new ArrayList<Node>();
+			nodes.addAll(net.getNet().getNetSystem().getNodes());
+			for (TokenTypeElementNet tten : net.getNet().getTypeElementNet()) {
+				nodes.addAll(tten.getNet().getNodes());
+			}
+			int counter = 0;
+			boolean noBinding = false;
+			do {
+				noBinding = false;
+				Node node = nodes.get(randomizer(nodes.size()));
+				if (node instanceof Transition) {
+					Report report = new Report();
+					Transition transition = (Transition) node;
+					if (transition.getNet() != net.getNet().getNetSystem() && transition instanceof TransitionSynchronized
+							&& ((TransitionSynchronized) transition).getSynchronization() != null)
+						continue;
+					counter++;
+					for (ArcPT arc : transition.getInArcs()) {
+						try {
+							bindings.addAll(getBindingManager().obtainBindings(arc, getMarking(), report,false));
+						} catch (NoBindingAvaliableException e) {
+							// System.out.println("no binding at transition "+
+							// transition.getName());
+							noBinding = true;
+							bindings.clear();
+							report.clearReport();
+
+						}
+					}
+					if (!noBinding) {
+						report.putToLog();
+						return transition;
+					}
+				}
+			} while (counter < 100000);
+			throw new NoBindingAvaliableException();
+		} else {
+			Report report = new Report();
+			for (ArcPT arc : trans.getInArcs()) {
+				try {
+					bindings.addAll(getBindingManager().obtainBindings(arc, getMarking(), report,false));
+				} catch (NoBindingAvaliableException e) {
+					// System.out.println("no binding at transition "+
+					// transition.getName());
+					bindings.clear();
+					report.clearReport();
+				}
+			}
+			return trans;
+		}
+	}
+	
+	public List<Transition> getEnabledTransitions(boolean onlyCheck) throws DeadlineViolationException {
+		List<Node> nodes = new ArrayList<Node>();
+		nodes.addAll(net.getNet().getNetSystem().getNodes());
+		for (TokenTypeElementNet tten : net.getNet().getTypeElementNet()) {
+			nodes.addAll(tten.getNet().getNodes());
+		}
+		List<Transition> candidates = new ArrayList<Transition>();
+		boolean noBinding = false;
+		for (Node node : nodes) {
+			noBinding = false;
+			if (node instanceof Transition) {
+				Report report = new Report();
+				Transition transition = (Transition) node;
+				if (transition.getNet() != net.getNet().getNetSystem() && transition instanceof TransitionSynchronized
+						&& ((TransitionSynchronized) transition).getSynchronization() != null)
+				{
+					continue;
+				}
+				for (ArcPT arc : transition.getInArcs()) {
+					try {
+						getBindingManager().obtainBindings(arc, getMarking(), report,onlyCheck);
+					} catch (NoBindingAvaliableException e) {
+						if(e.deadline)
+							throw new DeadlineViolationException(arc.getSource());
+						noBinding = true;
+						report.clearReport();
+					}
+				}
+				if (!noBinding) {
+					report.putToLog();
+					candidates.add(transition);
+				}
+			}
+		}
+		return candidates;
+	}
+
+	public MarkingAdapter makeTransitions(Transition trans) throws NoBindingAvaliableException {
+		bindings.clear();
+		outputBindings.clear();
+		if (!userDriven)
+			trans = bindVariables(trans);
+		else {
+			trans = chooseTransition();
+			if (!userBindings)
+				trans = bindVariables(trans);
+			else if (IDialogConstants.CANCEL_ID == chooseBindings(trans, false))
+				return null;
+
+		}
+		Report report = new Report();
+		Map<Transition, List<Token>> markingTrans = new HashMap<Transition, List<Token>>();
+		if (trans instanceof TransitionSynchronized && ((TransitionSynchronized) trans).getSynchronization() != null) {
+			TransitionSynchronized transS = (TransitionSynchronized) trans;
+			for (Binding binding : bindings) {
+				if (binding.getToken().getType() instanceof TokenTypeElementNet) {
+					TokenNetAdapter token = (TokenNetAdapter) binding.getToken();
+					for (Node node : ((TokenTypeElementNet) token.getType()).getNet().getNodes()) {
+						if (transS.getSynchronization().getInvolved().contains(node)) {
+							if (checkTransition((Transition) node, token.getValue())) {
+								markingTrans.put((Transition) node, new ArrayList<Token>());
+								List<Binding> syncBindings = new ArrayList<Binding>();
+								for (ArcPT arc : ((Transition) node).getInArcs()) {
+									syncBindings.addAll(getBindingManager().obtainBindingsFromSync(arc, token.getValue(), report, false));
+								}
+								for (Binding bind : syncBindings) {
+									bind.move(marking, markingTrans, token.getValue().getMarking());
+								}
+								for (Map.Entry<Transition, List<Token>> me : markingTrans.entrySet()) {
+									for (ArcTP arc : me.getKey().getOutArcs()) {
+										try {
+											outputBindings.addAll(bindingManager.obtainOutputBindings(arc, getMarking(), markingTrans, report,false));
+										} catch (NoOutputBindingAvaliableException e) {
+											System.out.println("Can't perform move from transition: \"" + me.getKey().getName() + "\"");
+											report.clearReport();
+										}
+									}
+								}
+								for (OutputBinding obinding : outputBindings) {
+									obinding.move(marking, markingTrans, token.getValue().getMarking());
+								}
+								markingTrans.remove((Transition) node);
+								outputBindings.clear();
+							}
+						}
+					}
+				}
+			}
+		}
+		markingTrans.put(trans, new ArrayList<Token>());
+		for (Binding bind : bindings) {
+			bind.move(marking, markingTrans);
+		}
+			for (Map.Entry<Transition, List<Token>> me : markingTrans.entrySet()) {
+				for (ArcTP arc : me.getKey().getOutArcs()) {
+					try {
+						outputBindings.addAll(bindingManager.obtainOutputBindings(arc, getMarking(), markingTrans, report,false));
+					} catch (NoOutputBindingAvaliableException e) {
+						System.out.println("Can't perform move from transition: \"" + me.getKey().getName() + "\"");
+						report.clearReport();
+					}
+				}
+			}
+		report.putToLog();
+		for (OutputBinding binding : outputBindings) {
+			binding.move(marking, markingTrans);
+		}
+		marking.clearDiagram();
+		marking.createDiagramMap(marking.markingMap);
+		if (PlaceAddTokenCommand.marking != null && PlaceAddTokenCommand.marking != Simulator.net.getMarking())
+			marking.createDiagramMap(marking.elementMarkingMap.get(PlaceAddTokenCommand.marking));
+		for (Entry<Transition, List<Token>> tr : markingTrans.entrySet()) {
+			report.appendLineToReport("transition successfully performed on transition \"" + tr.getKey().getName() + "\"", true);
+		}
+		return marking;
+	}
+
+	private int chooseBindings(Transition trans, boolean isOutput) {
+		NPNBindVariablesView bindDialog = new NPNBindVariablesView(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
+		bindDialog.setTrans(trans);
+		bindDialog.setOutput(isOutput);
+		bindDialog.setSimulator(this);
+		bindDialog.setMarkingAdapter(marking);
+		int ret = bindDialog.open();
+		if (!isOutput)
+			setBindings(bindDialog.getBindings());
+		else
+			setOutputBindings(bindDialog.getOutputBindings());
+		return ret;
+
+	}
+
+	private Transition chooseTransition() {
+		List<Node> nodes = new ArrayList<Node>();
+		nodes.addAll(net.getNet().getNetSystem().getNodes());
+		for (TokenTypeElementNet tten : net.getNet().getTypeElementNet()) {
+			nodes.addAll(tten.getNet().getNodes());
+		}
+		List<Transition> candidates = new ArrayList<Transition>();
+		boolean noBinding = false;
+		for (Node node : nodes) {
+			noBinding = false;
+			if (node instanceof Transition) {
+				Report report = new Report();
+				Transition transition = (Transition) node;
+				if (transition.getNet() != net.getNet().getNetSystem() && transition instanceof TransitionSynchronized
+						&& ((TransitionSynchronized) transition).getSynchronization() != null)
+					continue;
+				for (ArcPT arc : transition.getInArcs()) {
+					try {
+						getBindingManager().obtainBindings(arc, getMarking(), report,true);
+					} catch (NoBindingAvaliableException e) {
+						// System.out.println("no binding at transition "+
+						// transition.getName());
+						noBinding = true;
+						report.clearReport();
+
+					}
+				}
+				if (!noBinding) {
+					report.putToLog();
+					candidates.add(transition);
+				}
+			}
+		}
+		ListDialog sd = new ListDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell());
+		sd.setContentProvider(new ArrayContentProvider());
+		sd.setLabelProvider(new LabelProvider());
+		sd.setInput(createTransitionPicker(candidates));
+		sd.setTitle("Choose transition");
+		if (sd.open() == Window.OK) {
+			if (sd.getResult() == null)
+				return null;
+			if (sd.getResult()[0].equals("Random Transition")) {
+				return null;
+			}
+			Transition tr = searchTransByName(sd.getResult()[0].toString(), candidates);
+			return tr;
+		}
+		return null;
+
+	}
+
+	private Transition searchTransByName(String string, List<Transition> candidates) {
+		for (Transition trans : candidates) {
+			if (string.contains(trans.getName())) {
+				return trans;
+			}
+		}
+		return null;
+	}
+
+	private Object createTransitionPicker(List<Transition> candidates) {
+		List<Object> res = new ArrayList<Object>();
+		for (Transition trans : candidates) {
+			res.add(trans.getName() + " -- " + trans.getNet().getName());
+		}
+		res.add("Random Transition");
+		return res;
+	}
+
+	public List<Binding> getBindings() {
+		return bindings;
+	}
+
+	private static void fillVariableMapDefault() {
+		List<Variable> varList = net.getNet().getNetSystem().getVariables();
+		if (varList.size() > 0) {
+			variableMap.put(varList.get(0), net.getNet().getTypeAtomic());
+			new Report().appendLineToReport("Type Atomic mapped on variable " + varList.get(0).getName(), true);
+		}
+		for (int i = 1; i < varList.size(); i++) {
+			variableMap.put(varList.get(i), net.getNet().getTypeElementNet().get(i - 1));
+			new Report().appendLineToReport("Type \"" + net.getNet().getTypeElementNet().get(i - 1).getName() + "\" mapped on variable " + varList.get(i).getName(),
+					true);
+		}
+	}
+
+	public BindingManager getBindingManager() {
+		if (bindingManager == null)
+			bindingManager = new DefaultBindingManager();
+		return bindingManager;
+	}
+
+	public void setBindingManager(BindingManager bindingManager) {
+		this.bindingManager = bindingManager;
+	}
+
+	private int randomizer(int upperbound) {
+		return new Random().nextInt(upperbound);
+	}
+
+	public static boolean checkChanged() {
+		if (changed) {
+			changed = false;
+			return true;
+		} else
+			return false;
+	}
+
+	public boolean checkTransition(Transition trans, ElementNetMarked mark) {
+		Report report = new Report();
+		for (ArcPT arc : trans.getInArcs()) {
+			try {
+				getBindingManager().obtainBindingsFromSync(arc, mark, report,true);
+			} catch (NoBindingAvaliableException e) {
+				report.clearReport();
+				// System.out.println("no binding at transition "+
+				// transition.getName());
+				return false;
+			}
+			report.clearReport();
+		}
+		return true;
+	}
+
+	public static List<Token> getOutputTokens() {
+		return output;
+	}
+
+	public List<OutputBinding> getOutputBindings() {
+		return outputBindings;
+	}
+
+	public void setOutputBindings(List<OutputBinding> outputBindings) {
+		this.outputBindings = outputBindings;
+	}
+
+	public void setBindings(List<Binding> bindings) {
+		this.bindings = bindings;
+	}
+}

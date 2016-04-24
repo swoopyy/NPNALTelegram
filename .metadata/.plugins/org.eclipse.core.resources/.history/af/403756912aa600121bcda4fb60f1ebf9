@@ -1,0 +1,9 @@
+package testgefproject.editors;
+
+import org.eclipse.draw2d.geometry.Rectangle;
+
+public class Node {
+	Rectangle constraint;
+	
+
+}

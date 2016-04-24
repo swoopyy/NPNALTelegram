@@ -1,0 +1,14 @@
+package testgefproject.editors;
+
+public class ContentProvider {
+	public static final ContentProvider INSTANCE =
+			new ContentProvider();
+	public Graph newSampleGraph() {
+		Graph result = new Graph();
+		result.addNode(newNode(200, 150, 65, 35, “first”));
+		result.addNode(newNode(300, 250, 65, 35, “second”));
+		result.addNode(newNode(100, 300, 65, 35, "third”));
+				return result;
+	}
+	…
+}

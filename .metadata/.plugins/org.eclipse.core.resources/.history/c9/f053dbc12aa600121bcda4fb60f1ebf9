@@ -1,0 +1,8 @@
+package testgefproject.editors;
+
+import java.util.List;
+
+public class Graph {
+	List<Node> nodes;
+	
+}

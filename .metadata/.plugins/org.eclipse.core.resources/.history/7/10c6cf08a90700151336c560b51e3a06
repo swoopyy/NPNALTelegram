@@ -1,0 +1,56 @@
+package npnets.simulator.handlers;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
+import npnets.simulator.exceptions.NoBindingAvaliableException;
+import npnets.simulator.simulate.MarkingAdapter;
+import npnets.simulator.simulate.Report;
+import npnets.simulator.simulate.Simulator;
+
+import org.eclipse.core.commands.ExecutionEvent;
+import org.eclipse.core.commands.AbstractHandler;
+import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.commands.IHandler;
+import org.eclipse.jface.dialogs.InputDialog;
+import org.eclipse.jface.window.Window;
+import org.eclipse.ui.PlatformUI;
+
+public class NPNGraphicalSimulatorCMSimulateHandler extends AbstractHandler implements IHandler {
+	Simulator sim = new Simulator();
+	double steps;
+	@Override
+	public Object execute(ExecutionEvent event) throws ExecutionException {
+		sim.userBindings=false;
+		Simulator.userDriven=false;
+		final Timer timer=new Timer();
+		TimerTask timerTask=new TimerTask() {
+			
+			@Override
+			public void run() {
+				new Report().appendLineToReport("Scheduled operation was made at time: "+scheduledExecutionTime());
+				if(scheduledExecutionTime()>=steps)
+					timer.cancel();
+				
+			}
+		};
+		InputDialog sd = new InputDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell(), "Choose time", "The duration of the simulation (in sec): ", "10",
+				null);
+		if (sd.open() == Window.OK) {
+			if (sd.getValue() != null) {
+				steps = new Double(sd.getValue());
+				//timer.
+					try {
+						timer.schedule(timerTask, 0, 100);
+						//MarkingAdapter ma = sim.makeTransitions(null);
+						//sim.setMarking(ma);
+					} catch (Exception e) {
+						new Report().appendLineToReport("Deadlock appeared on step " + steps);
+						e.printStackTrace();
+					}
+			}
+		}
+		return null;
+	}
+
+}

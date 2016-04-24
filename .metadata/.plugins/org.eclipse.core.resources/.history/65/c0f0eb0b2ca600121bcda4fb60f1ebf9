@@ -1,0 +1,27 @@
+package testgefproject.editors;
+
+import org.eclipse.draw2d.IFigure;
+import org.eclipse.gef.editparts.AbstractGraphicalEditPart;
+
+public class NodeEditPart extends AbstractGraphicalEditPart {
+
+	public NodeEditPart(Node node) { setModel(node); }
+	
+	public void refreshVisuals() {
+		NodeFigure figure = (NodeFigure)getFigure();
+		Node node = (Node)getModel();
+		GraphEditPart parent = (GraphEditPart)getParent();
+		figure.getLabel().setText(node.getName());
+		Rectangle r = new Rectangle(node.getConstraint());
+		parent.setLayoutConstraint(this, figure, r);
+	}
+	@Override
+	protected IFigure createFigure() {
+		return new NodeFigure(); 
+	}
+
+	@Override
+	protected void createEditPolicies() {
+	}
+
+}

@@ -1,0 +1,20 @@
+package goodeditor.editors;
+
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.editors.text.TextEditor;
+
+public class NPNEditor extends TextEditor {
+
+	@Override
+	public void createPartControl(Composite parent) {
+		super.createPartControl(parent);
+	}
+	
+	public NPNEditor() {
+		super();
+	}
+	public void dispose() {
+		super.dispose();
+	}
+
+}
