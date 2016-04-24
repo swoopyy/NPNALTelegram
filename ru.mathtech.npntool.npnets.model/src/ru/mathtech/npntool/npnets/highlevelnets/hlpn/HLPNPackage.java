@@ -715,22 +715,22 @@ public interface HLPNPackage extends EPackage {
 	int ARC_TP__INSCRIPTION = ARC_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>First Time Constraint</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARC_TP__FIRST_TIME_CONSTRAINT = ARC_FEATURE_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Second Time Constraint</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARC_TP__SECOND_TIME_CONSTRAINT = ARC_FEATURE_COUNT + 4;
+	int ARC_TP__SECOND_TIME_CONSTRAINT = ARC_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>First Time Constraint</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARC_TP__FIRST_TIME_CONSTRAINT = ARC_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Arc TP</em>' class.

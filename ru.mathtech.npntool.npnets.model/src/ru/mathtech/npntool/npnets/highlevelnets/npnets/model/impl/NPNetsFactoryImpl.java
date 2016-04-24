@@ -33,7 +33,7 @@ public class NPNetsFactoryImpl extends EFactoryImpl implements NPNetsFactory {
 	 */
 	public static NPNetsFactory init() {
 		try {
-			NPNetsFactory theNPNetsFactory = (NPNetsFactory)EPackage.Registry.INSTANCE.getEFactory("mathtech.ru/npntool/npnets"); //$NON-NLS-1$ 
+			NPNetsFactory theNPNetsFactory = (NPNetsFactory)EPackage.Registry.INSTANCE.getEFactory(NPNetsPackage.eNS_URI);
 			if (theNPNetsFactory != null) {
 				return theNPNetsFactory;
 			}

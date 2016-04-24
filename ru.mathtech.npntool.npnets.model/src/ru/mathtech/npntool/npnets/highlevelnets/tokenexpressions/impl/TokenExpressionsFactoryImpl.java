@@ -32,7 +32,7 @@ public class TokenExpressionsFactoryImpl extends EFactoryImpl implements TokenEx
 	 */
 	public static TokenExpressionsFactory init() {
 		try {
-			TokenExpressionsFactory theTokenExpressionsFactory = (TokenExpressionsFactory)EPackage.Registry.INSTANCE.getEFactory("mathtech.ru/npntool/tokenexpressions"); //$NON-NLS-1$ 
+			TokenExpressionsFactory theTokenExpressionsFactory = (TokenExpressionsFactory)EPackage.Registry.INSTANCE.getEFactory(TokenExpressionsPackage.eNS_URI);
 			if (theTokenExpressionsFactory != null) {
 				return theTokenExpressionsFactory;
 			}

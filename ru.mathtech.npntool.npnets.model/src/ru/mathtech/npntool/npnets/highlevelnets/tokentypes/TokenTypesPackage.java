@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
 
 import ru.mathtech.npntool.npnets.highlevelnets.common.CommonPackage;
 
@@ -264,15 +265,6 @@ public interface TokenTypesPackage extends EPackage {
 	 */
 	int TOKEN_TYPE_ELEMENT_NET_FEATURE_COUNT = TOKEN_TYPE_FEATURE_COUNT + 3;
 
-	/**
-	 * The feature id for the '<em><b>Diagram</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TOKEN_TYPE_ELEMENT_NET__DIAGRAM = TOKEN_TYPE_FEATURE_COUNT + 3;
-	
 	/**
 	 * The operation id for the '<em>Get Instance By ID</em>' operation.
 	 * <!-- begin-user-doc -->
@@ -748,6 +740,8 @@ public interface TokenTypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int ATOM_OPERATION_COUNT = CommonPackage.INET_ELEMENT_OPERATION_COUNT + 0;
+
+	EStructuralFeature TOKEN_TYPE_ELEMENT_NET__DIAGRAM = null;
 
 
 	/**

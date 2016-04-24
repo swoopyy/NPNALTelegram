@@ -550,7 +550,6 @@ public class NPNDiagramsPackageImpl extends EPackageImpl implements NPNDiagramsP
 		npnSymbolTokenSNEClass = createEClass(NPN_SYMBOL_TOKEN_SN);
 		createEReference(npnSymbolTokenSNEClass, NPN_SYMBOL_TOKEN_SN__PLACE);
 		createEAttribute(npnSymbolTokenSNEClass, NPN_SYMBOL_TOKEN_SN__CONSTRAINTS);
-		createEReference(npnSymbolTokenSNEClass, NPN_SYMBOL_TOKEN_SN__MODEL);
 	}
 
 	/**
@@ -578,7 +577,6 @@ public class NPNDiagramsPackageImpl extends EPackageImpl implements NPNDiagramsP
 
 		// Obtain other dependent packages
 		CommonPackage theCommonPackage = (CommonPackage)EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI);
-		TokenTypesPackage theTokenPackage=(TokenTypesPackage)EPackage.Registry.INSTANCE.getEPackage(TokenTypesPackage.eNS_URI);
 		NPNetsPackage theNPNetsPackage = (NPNetsPackage)EPackage.Registry.INSTANCE.getEPackage(NPNetsPackage.eNS_URI);
 		HLPNPackage theHLPNPackage = (HLPNPackage)EPackage.Registry.INSTANCE.getEPackage(HLPNPackage.eNS_URI);
 
@@ -637,7 +635,6 @@ public class NPNDiagramsPackageImpl extends EPackageImpl implements NPNDiagramsP
 		initEClass(npnSymbolTokenSNEClass, NPNSymbolTokenSN.class, "NPNSymbolTokenSN", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getNPNSymbolTokenSN_Place(), this.getNPNSymbolPlaceSN(), this.getNPNSymbolPlaceSN_Tokens(), "place", null, 1, 1, NPNSymbolTokenSN.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEAttribute(getNPNSymbolTokenSN_Constraints(), theCommonPackage.getRectangle(), "constraints", "", 1, 1, NPNSymbolTokenSN.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
-		initEReference(getNPNSymbolTokenSN_Model(), theTokenPackage.getToken(), null, "model", null, 1, 1, NPNSymbolTokenSN.class, !IS_TRANSIENT,!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

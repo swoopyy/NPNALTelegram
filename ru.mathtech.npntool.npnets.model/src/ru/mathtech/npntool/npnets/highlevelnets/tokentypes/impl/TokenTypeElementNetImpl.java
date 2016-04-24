@@ -259,8 +259,6 @@ public class TokenTypeElementNetImpl extends TokenTypeImpl implements TokenTypeE
 				return basicSetNet(null, msgs);
 			case TokenTypesPackage.TOKEN_TYPE_ELEMENT_NET__TOKEN_NETS:
 				return ((InternalEList<?>)getTokenNets()).basicRemove(otherEnd, msgs);
-			case TokenTypesPackage.TOKEN_TYPE_ELEMENT_NET__DIAGRAM:
-				return basicSetDiagram(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -279,8 +277,6 @@ public class TokenTypeElementNetImpl extends TokenTypeImpl implements TokenTypeE
 				return getNet();
 			case TokenTypesPackage.TOKEN_TYPE_ELEMENT_NET__TOKEN_NETS:
 				return getTokenNets();
-			case TokenTypesPackage.TOKEN_TYPE_ELEMENT_NET__DIAGRAM:
-				return getDiagram();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -300,9 +296,6 @@ public class TokenTypeElementNetImpl extends TokenTypeImpl implements TokenTypeE
 				return;
 			case TokenTypesPackage.TOKEN_TYPE_ELEMENT_NET__NET:
 				setNet((HighLevelPetriNet)newValue);
-				return;
-			case TokenTypesPackage.TOKEN_TYPE_ELEMENT_NET__DIAGRAM:
-				setDiagram((NPNDiagramNetSystem) newValue);
 				return;
 			case TokenTypesPackage.TOKEN_TYPE_ELEMENT_NET__TOKEN_NETS:
 				getTokenNets().clear();
@@ -326,9 +319,6 @@ public class TokenTypeElementNetImpl extends TokenTypeImpl implements TokenTypeE
 			case TokenTypesPackage.TOKEN_TYPE_ELEMENT_NET__NET:
 				setNet((HighLevelPetriNet)null);
 				return;
-			case TokenTypesPackage.TOKEN_TYPE_ELEMENT_NET__DIAGRAM:
-				setDiagram(null);
-				return;
 			case TokenTypesPackage.TOKEN_TYPE_ELEMENT_NET__TOKEN_NETS:
 				getTokenNets().clear();
 				return;
@@ -348,8 +338,6 @@ public class TokenTypeElementNetImpl extends TokenTypeImpl implements TokenTypeE
 				return elementNetMarkeds != null && !elementNetMarkeds.isEmpty();
 			case TokenTypesPackage.TOKEN_TYPE_ELEMENT_NET__NET:
 				return net != null;
-			case TokenTypesPackage.TOKEN_TYPE_ELEMENT_NET__DIAGRAM:
-				return diagram!=null;
 			case TokenTypesPackage.TOKEN_TYPE_ELEMENT_NET__TOKEN_NETS:
 				return tokenNets != null && !tokenNets.isEmpty();
 		}
@@ -389,23 +377,10 @@ public class TokenTypeElementNetImpl extends TokenTypeImpl implements TokenTypeE
 		return msgs;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+	@Override
 	public void setDiagram(NPNDiagramNetSystem diagram) {
-		if (diagram != this.diagram) {
-			NotificationChain msgs = null;
-			if (this.diagram != null)
-				msgs = ((InternalEObject)diagram).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TokenTypesPackage.TOKEN_TYPE_ELEMENT_NET__DIAGRAM, null, msgs);
-			if (diagram != null)
-				msgs = ((InternalEObject)diagram).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TokenTypesPackage.TOKEN_TYPE_ELEMENT_NET__DIAGRAM, null, msgs);
-			msgs = basicSetDiagram(diagram, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TokenTypesPackage.TOKEN_TYPE_ELEMENT_NET__DIAGRAM, diagram, diagram));
+		// TODO Auto-generated method stub
+		
 	}
 
 } //TokenTypeElementNetImpl

@@ -244,9 +244,6 @@ public class NPNSymbolTokenSNImpl extends IEntityIdentifiableImpl implements NPN
 				return getPlace();
 			case NPNDiagramsPackage.NPN_SYMBOL_TOKEN_SN__CONSTRAINTS:
 				return getConstraints();
-			case NPNDiagramsPackage.NPN_SYMBOL_TOKEN_SN__MODEL:
-				return getModel();
-			
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -264,9 +261,6 @@ public class NPNSymbolTokenSNImpl extends IEntityIdentifiableImpl implements NPN
 				return;
 			case NPNDiagramsPackage.NPN_SYMBOL_TOKEN_SN__CONSTRAINTS:
 				setConstraints((Rectangle)newValue);
-				return;
-			case NPNDiagramsPackage.NPN_SYMBOL_TOKEN_SN__MODEL:
-				setModel((Token)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -286,9 +280,6 @@ public class NPNSymbolTokenSNImpl extends IEntityIdentifiableImpl implements NPN
 			case NPNDiagramsPackage.NPN_SYMBOL_TOKEN_SN__CONSTRAINTS:
 				setConstraints(CONSTRAINTS_EDEFAULT);
 				return;
-			case NPNDiagramsPackage.NPN_SYMBOL_TOKEN_SN__MODEL:
-				setModel(null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -305,8 +296,6 @@ public class NPNSymbolTokenSNImpl extends IEntityIdentifiableImpl implements NPN
 				return getPlace() != null;
 			case NPNDiagramsPackage.NPN_SYMBOL_TOKEN_SN__CONSTRAINTS:
 				return CONSTRAINTS_EDEFAULT == null ? constraints != null : !CONSTRAINTS_EDEFAULT.equals(constraints);
-			case NPNDiagramsPackage.NPN_SYMBOL_TOKEN_SN__MODEL:
-				return getModel()!=null;
 		}
 		return super.eIsSet(featureID);
 	}

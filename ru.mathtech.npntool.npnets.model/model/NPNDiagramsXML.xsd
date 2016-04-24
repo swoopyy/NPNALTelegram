@@ -84,7 +84,7 @@
   <xsd:complexType name="NPNSymbolTokenSN">
     <xsd:complexContent>
       <xsd:extension base="common:IEntityIdentifiable">
-        <xsd:attribute  name="constraints" type="xsd:string" use="required"/>
+        <xsd:attribute default="" name="constraints" type="xsd:string" use="required"/>
         <xsd:attribute name="place" type="xsd:string"/>
       </xsd:extension>
     </xsd:complexContent>

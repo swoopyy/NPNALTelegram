@@ -11,6 +11,7 @@ import ru.mathtech.npntool.npnets.highlevelnets.tokentypes.TokenType;
 
 import java.util.Collection;
 
+import java.util.UUID;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -71,12 +72,47 @@ public class PlaceImpl extends NodeImpl implements Place {
 	protected TokenType type;
 
 	/**
+	 * ID's prefix  
+	 * @generated
+	 */
+    protected static final String prefixUUID = "";
+
+	/**
+	 * ID's counter
+	 * @generated
+	 */
+    protected static long counterUUID = 0;
+
+	/**
+    * Generate a unique UUID based on the current time
+    * @generated
+    */
+
+	protected synchronized String generateUUIDByTime() {
+	  short cur = (short)System.currentTimeMillis();
+	  if (cur<0) cur = (short)-cur;
+	  return prefixUUID + cur + counterUUID++;
+	}
+
+	/**
+    * Generate a unique UUID
+    * @generated
+    */
+	
+	protected synchronized String generateUUID() {
+	  String res = "npn" + UUID.randomUUID().toString();
+	  return res;
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected PlaceImpl() {
 		super();
+  
+  
 	}
 
 	/**

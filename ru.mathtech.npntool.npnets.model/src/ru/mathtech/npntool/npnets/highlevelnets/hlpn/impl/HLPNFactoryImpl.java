@@ -62,7 +62,7 @@ public class HLPNFactoryImpl extends EFactoryImpl implements HLPNFactory {
 			case HLPNPackage.ARC_PT: return createArcPT();
 			case HLPNPackage.ARC_TP: return createArcTP();
 			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 

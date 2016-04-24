@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  *
- * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HlpnPackage#getPlace()
+ * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage#getPlace()
  * @model
  * @generated
  */
@@ -36,7 +36,7 @@ public interface Place extends Node {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Out Arcs</em>' reference list.
-	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HlpnPackage#getPlace_OutArcs()
+	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage#getPlace_OutArcs()
 	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.ArcPT#getSource
 	 * @model opposite="source"
 	 * @generated
@@ -54,7 +54,7 @@ public interface Place extends Node {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>In Arcs</em>' reference list.
-	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HlpnPackage#getPlace_InArcs()
+	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage#getPlace_InArcs()
 	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.ArcTP#getTarget
 	 * @model opposite="target"
 	 * @generated
@@ -71,7 +71,7 @@ public interface Place extends Node {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' reference.
 	 * @see #setType(TokenType)
-	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HlpnPackage#getPlace_Type()
+	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage#getPlace_Type()
 	 * @model required="true"
 	 * @generated
 	 */

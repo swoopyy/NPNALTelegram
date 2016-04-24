@@ -32,7 +32,7 @@ public class TokenTypesFactoryImpl extends EFactoryImpl implements TokenTypesFac
 	 */
 	public static TokenTypesFactory init() {
 		try {
-			TokenTypesFactory theTokenTypesFactory = (TokenTypesFactory)EPackage.Registry.INSTANCE.getEFactory("http://mathtech.ru/npntool/nets/tokentypes"); //$NON-NLS-1$ 
+			TokenTypesFactory theTokenTypesFactory = (TokenTypesFactory)EPackage.Registry.INSTANCE.getEFactory(TokenTypesPackage.eNS_URI);
 			if (theTokenTypesFactory != null) {
 				return theTokenTypesFactory;
 			}

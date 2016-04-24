@@ -15,12 +15,12 @@ import ru.mathtech.npntool.npnets.highlevelnets.tokenexpressions.TokenVariadicEx
  *   <li>{@link ru.mathtech.npntool.npnets.highlevelnets.hlpn.ArcTP#getSource <em>Source</em>}</li>
  *   <li>{@link ru.mathtech.npntool.npnets.highlevelnets.hlpn.ArcTP#getTarget <em>Target</em>}</li>
  *   <li>{@link ru.mathtech.npntool.npnets.highlevelnets.hlpn.ArcTP#getInscription <em>Inscription</em>}</li>
- *   <li>{@link ru.mathtech.npntool.npnets.highlevelnets.hlpn.ArcTP#getFirstTimeConstraint <em>First Time Constraint</em>}</li>
  *   <li>{@link ru.mathtech.npntool.npnets.highlevelnets.hlpn.ArcTP#getSecondTimeConstraint <em>Second Time Constraint</em>}</li>
+ *   <li>{@link ru.mathtech.npntool.npnets.highlevelnets.hlpn.ArcTP#getFirstTimeConstraint <em>First Time Constraint</em>}</li>
  * </ul>
  * </p>
  *
- * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HlpnPackage#getArcTP()
+ * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage#getArcTP()
  * @model
  * @generated
  */
@@ -36,7 +36,7 @@ public interface ArcTP extends Arc {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
 	 * @see #setSource(Transition)
-	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HlpnPackage#getArcTP_Source()
+	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage#getArcTP_Source()
 	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.Transition#getOutArcs
 	 * @model opposite="outArcs" required="true"
 	 * @generated
@@ -64,7 +64,7 @@ public interface ArcTP extends Arc {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
 	 * @see #setTarget(Place)
-	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HlpnPackage#getArcTP_Target()
+	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage#getArcTP_Target()
 	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.Place#getInArcs
 	 * @model opposite="inArcs" required="true"
 	 * @generated
@@ -91,7 +91,7 @@ public interface ArcTP extends Arc {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Inscription</em>' containment reference.
 	 * @see #setInscription(TokenVariadicExpression)
-	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HlpnPackage#getArcTP_Inscription()
+	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage#getArcTP_Inscription()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
@@ -118,7 +118,7 @@ public interface ArcTP extends Arc {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>First Time Constraint</em>' attribute.
 	 * @see #setFirstTimeConstraint(int)
-	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HlpnPackage#getArcTP_FirstTimeConstraint()
+	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage#getArcTP_FirstTimeConstraint()
 	 * @model default="0"
 	 * @generated
 	 */
@@ -145,7 +145,7 @@ public interface ArcTP extends Arc {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Second Time Constraint</em>' attribute.
 	 * @see #setSecondTimeConstraint(int)
-	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HlpnPackage#getArcTP_SecondTimeConstraint()
+	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage#getArcTP_SecondTimeConstraint()
 	 * @model default="-1"
 	 * @generated
 	 */

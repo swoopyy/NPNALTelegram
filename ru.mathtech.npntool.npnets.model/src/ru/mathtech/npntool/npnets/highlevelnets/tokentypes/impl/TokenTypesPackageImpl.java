@@ -270,15 +270,6 @@ public class TokenTypesPackageImpl extends EPackageImpl implements TokenTypesPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTokenTypeElementNet_Diagram() {
-		return (EReference)tokenTypeElementNetEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getTokenTypeElementNet_TokenNets() {
 		return (EReference)tokenTypeElementNetEClass.getEStructuralFeatures().get(2);
 	}
@@ -491,7 +482,6 @@ public class TokenTypesPackageImpl extends EPackageImpl implements TokenTypesPac
 		tokenTypeElementNetEClass = createEClass(TOKEN_TYPE_ELEMENT_NET);
 		createEReference(tokenTypeElementNetEClass, TOKEN_TYPE_ELEMENT_NET__ELEMENT_NET_MARKEDS);
 		createEReference(tokenTypeElementNetEClass, TOKEN_TYPE_ELEMENT_NET__NET);
-		createEReference(tokenTypeElementNetEClass, TOKEN_TYPE_ELEMENT_NET__DIAGRAM);
 		createEReference(tokenTypeElementNetEClass, TOKEN_TYPE_ELEMENT_NET__TOKEN_NETS);
 		createEOperation(tokenTypeElementNetEClass, TOKEN_TYPE_ELEMENT_NET___GET_INSTANCE_BY_ID__INT);
 		createEOperation(tokenTypeElementNetEClass, TOKEN_TYPE_ELEMENT_NET___CREATE_INSTANCE);
@@ -547,7 +537,7 @@ public class TokenTypesPackageImpl extends EPackageImpl implements TokenTypesPac
 		CommonPackage theCommonPackage = (CommonPackage)EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI);
 		HLPNPackage theHLPNPackage = (HLPNPackage)EPackage.Registry.INSTANCE.getEPackage(HLPNPackage.eNS_URI);
 		MarkingPackage theMarkingPackage = (MarkingPackage)EPackage.Registry.INSTANCE.getEPackage(MarkingPackage.eNS_URI);
-		NPNDiagramsPackageImpl theNPNDiagramsPackage = (NPNDiagramsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(NPNDiagramsPackage.eNS_URI));
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -573,7 +563,6 @@ public class TokenTypesPackageImpl extends EPackageImpl implements TokenTypesPac
 		initEClass(tokenTypeElementNetEClass, TokenTypeElementNet.class, "TokenTypeElementNet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getTokenTypeElementNet_ElementNetMarkeds(), this.getElementNetMarked(), this.getElementNetMarked_Type(), "elementNetMarkeds", null, 0, -1, TokenTypeElementNet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getTokenTypeElementNet_Net(), theHLPNPackage.getHighLevelPetriNet(), null, "net", null, 1, 1, TokenTypeElementNet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getTokenTypeElementNet_Diagram(), theNPNDiagramsPackage.getNPNDiagramNetSystem(), null, "diagram", null, 1, 1, TokenTypeElementNet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getTokenTypeElementNet_TokenNets(), this.getTokenNet(), this.getTokenNet_Type(), "tokenNets", null, 0, -1, TokenTypeElementNet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		EOperation op = initEOperation(getTokenTypeElementNet__GetInstanceByID__int(), null, "getInstanceByID", 1, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
@@ -607,6 +596,12 @@ public class TokenTypesPackageImpl extends EPackageImpl implements TokenTypesPac
 
 		// Create resource
 		createResource(eNS_URI);
+	}
+
+	@Override
+	public EReference getTokenTypeElementNet_Diagram() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 } //TokenTypesPackageImpl

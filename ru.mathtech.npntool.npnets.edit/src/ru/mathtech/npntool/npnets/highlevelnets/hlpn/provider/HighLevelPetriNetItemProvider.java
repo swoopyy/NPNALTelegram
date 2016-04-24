@@ -33,13 +33,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class HighLevelPetriNetItemProvider
-	extends INetElementItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends INetElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -105,7 +99,7 @@ public class HighLevelPetriNetItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/HighLevelPetriNet"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/HighLevelPetriNet")); //$NON-NLS-1$
 	}
 
 	/**
@@ -118,8 +112,8 @@ public class HighLevelPetriNetItemProvider
 	public String getText(Object object) {
 		String label = ((HighLevelPetriNet)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_HighLevelPetriNet_type") :
-			getString("_UI_HighLevelPetriNet_type") + " " + label;
+			getString("_UI_HighLevelPetriNet_type") : //$NON-NLS-1$
+			getString("_UI_HighLevelPetriNet_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

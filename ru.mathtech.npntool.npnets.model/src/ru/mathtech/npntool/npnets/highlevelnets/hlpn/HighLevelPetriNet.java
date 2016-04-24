@@ -19,7 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  *
- * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HlpnPackage#getHighLevelPetriNet()
+ * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage#getHighLevelPetriNet()
  * @model
  * @generated
  */
@@ -35,7 +35,7 @@ public interface HighLevelPetriNet extends INetElement, ContextVariable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Nodes</em>' containment reference list.
-	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HlpnPackage#getHighLevelPetriNet_Nodes()
+	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage#getHighLevelPetriNet_Nodes()
 	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.Node#getNet
 	 * @model opposite="net" containment="true"
 	 * @generated
@@ -53,7 +53,7 @@ public interface HighLevelPetriNet extends INetElement, ContextVariable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Arcs</em>' containment reference list.
-	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HlpnPackage#getHighLevelPetriNet_Arcs()
+	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage#getHighLevelPetriNet_Arcs()
 	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.Arc#getNet
 	 * @model opposite="net" containment="true"
 	 * @generated

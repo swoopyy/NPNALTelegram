@@ -18,7 +18,7 @@ import ru.mathtech.npntool.npnets.highlevelnets.tokenexpressions.TokenVariadicEx
  * </ul>
  * </p>
  *
- * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HlpnPackage#getArcPT()
+ * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage#getArcPT()
  * @model
  * @generated
  */
@@ -34,7 +34,7 @@ public interface ArcPT extends Arc {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
 	 * @see #setSource(Place)
-	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HlpnPackage#getArcPT_Source()
+	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage#getArcPT_Source()
 	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.Place#getOutArcs
 	 * @model opposite="outArcs" required="true"
 	 * @generated
@@ -62,7 +62,7 @@ public interface ArcPT extends Arc {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
 	 * @see #setTarget(Transition)
-	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HlpnPackage#getArcPT_Target()
+	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage#getArcPT_Target()
 	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.Transition#getInArcs
 	 * @model opposite="inArcs" required="true"
 	 * @generated
@@ -89,7 +89,7 @@ public interface ArcPT extends Arc {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Inscription</em>' containment reference.
 	 * @see #setInscription(TokenVariadicExpression)
-	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HlpnPackage#getArcPT_Inscription()
+	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage#getArcPT_Inscription()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */

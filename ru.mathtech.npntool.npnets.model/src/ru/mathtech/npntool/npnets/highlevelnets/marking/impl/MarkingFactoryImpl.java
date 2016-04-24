@@ -32,7 +32,7 @@ public class MarkingFactoryImpl extends EFactoryImpl implements MarkingFactory {
 	 */
 	public static MarkingFactory init() {
 		try {
-			MarkingFactory theMarkingFactory = (MarkingFactory)EPackage.Registry.INSTANCE.getEFactory("http://mathtech.ru/npntool/nets/marking"); //$NON-NLS-1$ 
+			MarkingFactory theMarkingFactory = (MarkingFactory)EPackage.Registry.INSTANCE.getEFactory(MarkingPackage.eNS_URI);
 			if (theMarkingFactory != null) {
 				return theMarkingFactory;
 			}

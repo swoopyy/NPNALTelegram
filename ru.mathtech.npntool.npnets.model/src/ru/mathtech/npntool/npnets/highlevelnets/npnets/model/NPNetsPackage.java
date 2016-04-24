@@ -385,6 +385,24 @@ public interface NPNetsPackage extends EPackage {
 	int TRANSITION_SYNCHRONIZED__NET = HLPNPackage.TRANSITION__NET;
 
 	/**
+	 * The feature id for the '<em><b>First Time Constraint</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_SYNCHRONIZED__FIRST_TIME_CONSTRAINT = HLPNPackage.TRANSITION__FIRST_TIME_CONSTRAINT;
+
+	/**
+	 * The feature id for the '<em><b>Second Time Constraint</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION_SYNCHRONIZED__SECOND_TIME_CONSTRAINT = HLPNPackage.TRANSITION__SECOND_TIME_CONSTRAINT;
+
+	/**
 	 * The feature id for the '<em><b>In Arcs</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

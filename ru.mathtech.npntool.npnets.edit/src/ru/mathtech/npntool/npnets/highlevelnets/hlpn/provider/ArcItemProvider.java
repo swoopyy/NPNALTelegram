@@ -31,13 +31,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class ArcItemProvider
-	extends INetElementItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends INetElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -73,8 +67,8 @@ public class ArcItemProvider
 	public String getText(Object object) {
 		String label = ((Arc)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Arc_type") :
-			getString("_UI_Arc_type") + " " + label;
+			getString("_UI_Arc_type") : //$NON-NLS-1$
+			getString("_UI_Arc_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

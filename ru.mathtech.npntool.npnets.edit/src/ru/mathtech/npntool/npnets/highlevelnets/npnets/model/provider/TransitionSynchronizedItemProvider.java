@@ -25,19 +25,13 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 /**
- * This is the item provider adapter for a {@link ru.mathtech.npntool.npnets.highlevelnets.npnets.TransitionSynchronized} object.
+ * This is the item provider adapter for a {@link ru.mathtech.npntool.npnets.highlevelnets.npnets.model.TransitionSynchronized} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
 public class TransitionSynchronizedItemProvider
-	extends TransitionItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends TransitionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -75,8 +69,8 @@ public class TransitionSynchronizedItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TransitionSynchronized_synchronization_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TransitionSynchronized_synchronization_feature", "_UI_TransitionSynchronized_type"),
+				 getString("_UI_TransitionSynchronized_synchronization_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_TransitionSynchronized_synchronization_feature", "_UI_TransitionSynchronized_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 NPNetsPackage.Literals.TRANSITION_SYNCHRONIZED__SYNCHRONIZATION,
 				 true,
 				 false,
@@ -94,7 +88,7 @@ public class TransitionSynchronizedItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TransitionSynchronized"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TransitionSynchronized")); //$NON-NLS-1$
 	}
 
 	/**
@@ -107,8 +101,8 @@ public class TransitionSynchronizedItemProvider
 	public String getText(Object object) {
 		String label = ((TransitionSynchronized)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_TransitionSynchronized_type") :
-			getString("_UI_TransitionSynchronized_type") + " " + label;
+			getString("_UI_TransitionSynchronized_type") : //$NON-NLS-1$
+			getString("_UI_TransitionSynchronized_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

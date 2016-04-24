@@ -31,13 +31,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class ContextVariableItemProvider
-	extends IEntityIdentifiableItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends IEntityIdentifiableItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -103,8 +97,8 @@ public class ContextVariableItemProvider
 	public String getText(Object object) {
 		String label = ((ContextVariable)object).getUuid();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ContextVariable_type") :
-			getString("_UI_ContextVariable_type") + " " + label;
+			getString("_UI_ContextVariable_type") : //$NON-NLS-1$
+			getString("_UI_ContextVariable_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

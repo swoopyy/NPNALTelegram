@@ -28,14 +28,7 @@ import ru.mathtech.npntool.npnets.npndiagrams.NPNSymbolArcTPSN;
  * @generated
  */
 public class NPNSymbolArcTPSNItemProvider
-	extends NPNSymbolArcSNItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource,
-		ITableItemLabelProvider {
+	extends NPNSymbolArcSNItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

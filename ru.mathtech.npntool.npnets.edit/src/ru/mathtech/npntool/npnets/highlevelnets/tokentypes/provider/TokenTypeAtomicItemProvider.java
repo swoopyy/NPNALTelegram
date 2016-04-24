@@ -31,14 +31,7 @@ import ru.mathtech.npntool.npnets.highlevelnets.tokentypes.TokenTypesPackage;
  * @generated
  */
 public class TokenTypeAtomicItemProvider
-	extends TokenTypeItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource,
-		ITableItemLabelProvider {
+	extends TokenTypeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

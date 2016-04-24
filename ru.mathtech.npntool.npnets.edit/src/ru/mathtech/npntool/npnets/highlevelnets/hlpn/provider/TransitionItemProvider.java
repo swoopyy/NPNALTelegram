@@ -31,13 +31,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class TransitionItemProvider
-	extends ContextVariableItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ContextVariableItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -80,8 +74,8 @@ public class TransitionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_INetElement_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_INetElement_name_feature", "_UI_INetElement_type"),
+				 getString("_UI_INetElement_name_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_INetElement_name_feature", "_UI_INetElement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 CommonPackage.Literals.INET_ELEMENT__NAME,
 				 true,
 				 false,
@@ -102,8 +96,8 @@ public class TransitionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_INetElement_comment_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_INetElement_comment_feature", "_UI_INetElement_type"),
+				 getString("_UI_INetElement_comment_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_INetElement_comment_feature", "_UI_INetElement_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 CommonPackage.Literals.INET_ELEMENT__COMMENT,
 				 true,
 				 false,
@@ -124,8 +118,8 @@ public class TransitionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Node_firstTimeConstraint_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Node_firstTimeConstraint_feature", "_UI_Node_type"),
+				 getString("_UI_Node_firstTimeConstraint_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Node_firstTimeConstraint_feature", "_UI_Node_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 HLPNPackage.Literals.NODE__FIRST_TIME_CONSTRAINT,
 				 true,
 				 false,
@@ -146,8 +140,8 @@ public class TransitionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Node_secondTimeConstraint_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Node_secondTimeConstraint_feature", "_UI_Node_type"),
+				 getString("_UI_Node_secondTimeConstraint_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Node_secondTimeConstraint_feature", "_UI_Node_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 HLPNPackage.Literals.NODE__SECOND_TIME_CONSTRAINT,
 				 true,
 				 false,
@@ -168,8 +162,8 @@ public class TransitionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Transition_inArcs_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_inArcs_feature", "_UI_Transition_type"),
+				 getString("_UI_Transition_inArcs_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_inArcs_feature", "_UI_Transition_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 HLPNPackage.Literals.TRANSITION__IN_ARCS,
 				 true,
 				 false,
@@ -190,8 +184,8 @@ public class TransitionItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Transition_outArcs_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_outArcs_feature", "_UI_Transition_type"),
+				 getString("_UI_Transition_outArcs_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Transition_outArcs_feature", "_UI_Transition_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 HLPNPackage.Literals.TRANSITION__OUT_ARCS,
 				 true,
 				 false,
@@ -209,7 +203,7 @@ public class TransitionItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Transition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Transition")); //$NON-NLS-1$
 	}
 
 	/**
@@ -222,8 +216,8 @@ public class TransitionItemProvider
 	public String getText(Object object) {
 		String label = ((Transition)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Transition_type") :
-			getString("_UI_Transition_type") + " " + label;
+			getString("_UI_Transition_type") : //$NON-NLS-1$
+			getString("_UI_Transition_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
