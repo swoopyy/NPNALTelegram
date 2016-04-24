@@ -53,6 +53,13 @@
             id="npnets.simulator.Undo"
             name="Undo">
       </command>
+      <command
+      		categoryId="org.eclipse.debug.ui.category.run"
+            defaultHandler="npnets.simulator.handlers.NPNGraphicalSimulatorCMCompileHandler"
+            helpContextId="toggle_mark_occurrences_action_context"
+            id="npnets.simulator.Compile"
+            name="Compile">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -83,6 +90,14 @@
                   label="Undo step"
                   style="push"
                   tooltip="Undo previous step">
+            </command>
+             <command
+                  commandId="npnets.simulator.Compile"
+                  helpContextId="toggle_mark_occurrences_action_context"
+                  icon="icons/Compile_icon.gif"
+                  label="Compile AL"
+                  style="push"
+                  tooltip="Compile code">
             </command>
          </toolbar>
       </menuContribution>

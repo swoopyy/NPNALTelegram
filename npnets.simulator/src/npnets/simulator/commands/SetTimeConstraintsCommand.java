@@ -11,10 +11,12 @@ import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.window.Window;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ListDialog;
+import org.eclipse.ui.part.PageBook;
 
 import ru.mathtech.npntool.npnets.highlevelnets.hlpn.ArcTP;
 import ru.mathtech.npntool.npnets.highlevelnets.hlpn.Node;
@@ -66,6 +68,7 @@ public class SetTimeConstraintsCommand extends Command {
 			} else {
 				InputDialog id = new InputDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell(), "Set value",
 						"Input bounds in format: lower bound;upper bound. Type inf for infinity:", "1", null);
+		
 				if (id.open() == Window.OK) {
 					if (id.getValue() == null || !(id.getValue().matches("[0-9]+;(([0-9]+)|inf)" ) ))
 						return;

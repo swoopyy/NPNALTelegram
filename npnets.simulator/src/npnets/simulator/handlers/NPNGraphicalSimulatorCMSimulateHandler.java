@@ -38,6 +38,7 @@ public class NPNGraphicalSimulatorCMSimulateHandler extends AbstractHandler impl
 	long prevTime=0;
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
+		System.out.println("ХУУУЙ");
 		sim.userBindings=false;
 		Simulator.userDriven=false;
 		prevTime=0;

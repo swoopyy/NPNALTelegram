@@ -2,12 +2,14 @@ package npnets.simulator.policy;
 
 import npnets.simulator.actions.PlaceAddTokenAction;
 import npnets.simulator.actions.SetTimeConstraintsAction;
+import npnets.simulator.actions.TransitionAddALCodeAction;
 import npnets.simulator.actions.TransitionAddSynchronizationAction;
 import npnets.simulator.commands.NodeDeleteCommand;
 import npnets.simulator.commands.PlaceAddTokenCommand;
 import npnets.simulator.commands.SetTimeConstraintsCommand;
 import npnets.simulator.commands.TokenDeleteCommand;
 import npnets.simulator.commands.TransitionAddSynchronizationCommand;
+import npnets.simulator.commands.*;
 import npnets.simulator.simulate.Simulator;
 
 import org.eclipse.gef.Request;
@@ -82,7 +84,13 @@ public class NodeComponentEditPolicy extends ComponentEditPolicy {
     	SetTimeConstraintsCommand command = new SetTimeConstraintsCommand();
         command.setModel(getHost().getModel());
         return command;
-    }   
+    } 
+    
+    private TransitionAddALCodeCommand createAddALCodeCommand(){
+    	TransitionAddALCodeCommand command = new TransitionAddALCodeCommand();
+    	command.setTransition((NPNSymbolTransitionSN) getHost().getModel());
+    	return command;
+    }
     
     @Override
     public Command getCommand(Request request) {
@@ -93,6 +101,8 @@ public class NodeComponentEditPolicy extends ComponentEditPolicy {
         }
         else if (request.getType().equals(SetTimeConstraintsAction.REQ_SET_TIME))
         	return  createTimeConstraintsCommand();
+        else if(request.getType().equals(TransitionAddALCodeAction.REQ_ADD_CODE))
+        	return createAddALCodeCommand();
         return super.getCommand(request);
     }
 }

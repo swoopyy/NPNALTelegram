@@ -16,6 +16,7 @@ import npnets.simulator.actions.PlaceAddTokenAction;
 import npnets.simulator.actions.SetTimeConstraintsAction;
 import npnets.simulator.actions.TransitionAddSynchronizationAction;
 import npnets.simulator.factory.NPNEditPartFactory;
+import npnets.simulator.actions.*;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor.PropertyValueWrapper;
@@ -118,6 +119,11 @@ public class NetSimpleGraphicalEditor extends GraphicalEditorWithFlyoutPalette {
 	    action = new SetTimeConstraintsAction(this);
 	    getActionRegistry().registerAction(action);
 	    getSelectionActions().add(action.getId());
+	    
+	    action = new TransitionAddALCodeAction(this);
+	    getActionRegistry().registerAction(action);
+	    getSelectionActions().add(action.getId());
+	    
 	}
 	
 	@Override

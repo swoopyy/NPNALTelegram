@@ -4,6 +4,7 @@ package npnets.simulator.editors;
 import npnets.simulator.actions.PlaceAddTokenAction;
 import npnets.simulator.actions.SetTimeConstraintsAction;
 import npnets.simulator.actions.TransitionAddSynchronizationAction;
+import npnets.simulator.actions.TransitionAddALCodeAction;
 
 import org.eclipse.gef.ContextMenuProvider;
 import org.eclipse.gef.EditPartViewer;
@@ -41,6 +42,8 @@ public class NetGraphicalEditorContextMenuProvider  extends ContextMenuProvider 
         action = getActionRegistry().getAction(TransitionAddSynchronizationAction.ADD_SYNC);
         menu.appendToGroup(GEFActionConstants.GROUP_REST, action);
         action = getActionRegistry().getAction(SetTimeConstraintsAction.SET_TIME);
+        menu.appendToGroup(GEFActionConstants.GROUP_REST, action);
+        action = getActionRegistry().getAction(TransitionAddALCodeAction.ADD_CODE);
         menu.appendToGroup(GEFActionConstants.GROUP_REST, action);
     }
  
