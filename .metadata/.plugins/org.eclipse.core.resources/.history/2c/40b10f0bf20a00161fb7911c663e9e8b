@@ -45,18 +45,22 @@ public class NodeGraphicalNodeEditPolicy extends GraphicalNodeEditPolicy {
 	    ArcCreateCommand result;// = new ArcCreateCommand();
 	    ArcFactory factory; //my
 	    if (getHost().getModel() instanceof NPNSymbolPlaceSN) {
+	    	System.out.println("Place to Transition"); //DELETE
+	    	request.setFactory(new ArcPTFactory());
 	    	factory = new ArcPTFactory();
-	    	request.setFactory(factory);
 	    	result = new ArcPTCreateCommand();
 	    	((ArcPTCreateCommand) result).setSource((NPNSymbolPlaceSN)getHost().getModel());
 	    } else {
+	    	System.out.println("Transition to place"); //DELETE
+	    	request.setFactory(new ArcTPFactory());
 	    	factory = new ArcTPFactory();
-	    	request.setFactory(factory);
 	    	result = new ArcTPCreateCommand();
 	    	((ArcTPCreateCommand) result).setSource((NPNSymbolTransitionSN)getHost().getModel());
 	    }
 	    
-	    NPNSymbolArcSN arc = (NPNSymbolArcSN)factory.getNewObject();
+	    NPNSymbolArcSN arc = (NPNSymbolArcSN)request.getNewObject();
+	    arc = (NPNSymbolArcSN)factory.getNewObject();
+	    System.out.println(arc.getClass());
 	    result.setArc(arc);
 	    result.setNet(((NPNSymbolNodeSN)getHost().getModel()).getDiagram());
 	    request.setStartCommand(result);
