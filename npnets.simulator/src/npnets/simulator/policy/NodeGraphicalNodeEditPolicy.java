@@ -41,6 +41,7 @@ public class NodeGraphicalNodeEditPolicy extends GraphicalNodeEditPolicy {
 	  @Override protected Command getConnectionCreateCommand(CreateConnectionRequest request) {
 	    ArcCreateCommand result;// = new ArcCreateCommand();
 	    if (getHost().getModel() instanceof NPNSymbolPlaceSN) {
+	    	System.out.println("Place to Transition"); //delete
 	    	request.setFactory(new ArcPTFactory());
 	    	result = new ArcPTCreateCommand();
 	    	((ArcPTCreateCommand) result).setSource((NPNSymbolPlaceSN)getHost().getModel());
