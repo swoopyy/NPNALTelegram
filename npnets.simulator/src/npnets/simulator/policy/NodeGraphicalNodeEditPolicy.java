@@ -27,11 +27,9 @@ public class NodeGraphicalNodeEditPolicy extends GraphicalNodeEditPolicy {
 		ArcCreateCommand result;// = (ArcCreateCommand) request.getStartCommand();
 		if (getHost().getModel().getClass() != ((ArcCreateCommand)request.getStartCommand()).getSource().getClass()) {
 		    if (request.getStartCommand() instanceof ArcPTCreateCommand)  {
-		    	System.out.println("Transition"); //DELTE
 		    	result = (ArcPTCreateCommand) request.getStartCommand();
 		    	((ArcPTCreateCommand) result).setTarget((NPNSymbolTransitionSN)getHost().getModel());
 		    } else {
-		    	System.out.println("Place"); //DELTE
 		    	result = (ArcTPCreateCommand) request.getStartCommand();
 		    	((ArcTPCreateCommand) result).setTarget((NPNSymbolPlaceSN)getHost().getModel());
 		    }

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.highlevelnets.marking.Marking"/>
 <fullyQualifiedTypeName name="npnets.simulator.simulate.MarkingAdapter"/>
 <fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.highlevelnets.common.INetElement"/>
 <fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.highlevelnets.tokenexpressions.TokenExpressionsPackage"/>
@@ -60,4 +59,5 @@
 <fullyQualifiedTypeName name="java.util.Map.Entry"/>
 <fullyQualifiedTypeName name="org.eclipse.swt.widgets.Display"/>
 <fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.highlevelnets.npnets.model.TransitionSynchronized"/>
+<fullyQualifiedTypeName name="npnets.simulator.factory.ArcFactory"/>
 </qualifiedTypeNameHistroy>
