@@ -62,14 +62,14 @@
       </command>
        <command
       		categoryId="org.eclipse.debug.ui.category.run"
-            defaultHandler="npnets.simulator.handlers.NPNGraphicalSimulatorCMSaveALHandler"
+            defaultHandler="npnets.simulator.handlers.NPNGraphicalSimulatorCMSaveALCodeHandler"
             helpContextId="toggle_mark_occurrences_action_context"
             id="npnets.simulator.SaveAL"
             name="SaveAL">
       </command>
        <command
       		categoryId="org.eclipse.debug.ui.category.run"
-            defaultHandler="npnets.simulator.handlers.NPNGraphicalSimulatorCMLoadALHandler"
+            defaultHandler="npnets.simulator.handlers.NPNGraphicalSimulatorCMLoadALCodeHandler"
             helpContextId="toggle_mark_occurrences_action_context"
             id="npnets.simulator.LoadAL"
             name="LoadAL">
