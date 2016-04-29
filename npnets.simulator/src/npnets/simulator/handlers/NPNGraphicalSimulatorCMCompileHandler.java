@@ -14,7 +14,7 @@ public class NPNGraphicalSimulatorCMCompileHandler extends AbstractHandler{
 	@Override
 	public Object execute(ExecutionEvent arg0) throws ExecutionException {
 		for(TokenTypeElementNet nt: Simulator.net.getNet().getTypeElementNet()){
-			System.out.println(nt);
+			System.out.println(nt.toString());
 		}
 		for(Node nd: Simulator.net.getNet().getNetSystem().getNodes()){
 			if(nd instanceof TransitionWithALCode){

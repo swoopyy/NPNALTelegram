@@ -48,8 +48,6 @@ public class TransitionAddALCodeCommand extends Command {
 	@Override
 	public void execute() {
 
-		Node node = null;
-		ArcTP arc = null;
 		FileDialog id = new FileDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell());
 		String path = id.open();
 		if (path!=null) {
