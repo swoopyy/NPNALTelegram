@@ -24,9 +24,9 @@ public class NPNGraphicalSimulatorCMSaveALCodeHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent arg0) throws ExecutionException {
-		JSONObject obj = null;
+		String code = "";
 		try {
-			obj = createJson();
+			code = createJson().toString();
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -35,27 +35,93 @@ public class NPNGraphicalSimulatorCMSaveALCodeHandler extends AbstractHandler {
 		id.setFilterExtensions(new String[] { ".al" });
 		String path = id.open();
 		if (path != null) {
-			writeToFile(obj, path);
+			writeToFile(code, path);
 			Simulator.changed = true;
 		}
 		return null;
 	}
 
-	private void writeToFile(JSONObject obj, String path) {
+	private void writeToFile(String code, String path) {
 		try {
 			PrintWriter writer = new PrintWriter(path, "UTF-8");
-			obj.write(writer);
+			writer.write(code);
 			writer.close();
 		} catch (UnsupportedEncodingException ex) {
 			ex.printStackTrace();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		} catch (JSONException e) {
-			e.printStackTrace();
 		}
 	}
 
-	
+	private String getCode() {
+		final String quote = "\"";
+		final String comma = ",";
+		final String lBracket = "{";
+		final String rBracket = "}";
+		final String lineBreak = "\n";
+		final String colon = ":";
+
+		StringBuilder b = new StringBuilder();
+		b.append(lBracket);
+		b.append(lineBreak);
+		NPnet sNet = Simulator.net.getNet();
+		b.append(quote);
+		b.append("SPnet");
+		b.append(quote);
+		b.append(colon);
+		b.append(lBracket);
+		b.append(lineBreak);
+		for (Node nd : sNet.getNetSystem().getNodes()) {
+			if (nd instanceof TransitionWithALCode) {
+				TransitionWithALCode tr = (TransitionWithALCode) nd;
+				b.append(quote);
+				b.append(tr.getUuid());
+				b.append(quote);
+				b.append(colon);
+				b.append(quote);
+				b.append(tr.getCode());
+				b.append(quote);
+				b.append(comma);
+				b.append(lineBreak);
+			}
+		}
+		b.append(rBracket);
+		b.append(quote);
+		b.append("EPnet");
+		b.append(quote);
+		b.append(colon);
+		b.append(lBracket);
+		b.append(lineBreak);
+		for (TokenTypeElementNet nt : Simulator.net.getNet().getTypeElementNet()) {
+			b.append(quote);
+			b.append(nt.getUuid());
+			b.append(quote);
+			b.append(colon);
+			b.append(lBracket);
+			b.append(lineBreak);
+			for (Node nd : nt.getNet().getNodes()) {
+				if (nd instanceof TransitionWithALCode) {
+					TransitionWithALCode tr = (TransitionWithALCode) nd;
+					b.append(quote);
+					b.append(tr.getUuid());
+					b.append(quote);
+					b.append(colon);
+					b.append(quote);
+					b.append(tr.getCode());
+					b.append(quote);
+					b.append(comma);
+					b.append(lineBreak);
+				}
+			}
+			b.append(rBracket);
+			b.append(comma);
+			b.append(lineBreak);
+		}
+
+		b.append(rBracket);
+		return b.toString();
+	}
+
 	private JSONObject createJson() throws JSONException {
 		JSONObject out = new JSONObject();
 		NPnet sNet = Simulator.net.getNet();
@@ -66,7 +132,6 @@ public class NPNGraphicalSimulatorCMSaveALCodeHandler extends AbstractHandler {
 			}
 		}
 		out.put("SPnet", spnetTrans);
-		
 		JSONObject epnets = new JSONObject();
 		for (TokenTypeElementNet nt : Simulator.net.getNet().getTypeElementNet()) {
 			JSONObject currNet = new JSONObject();
@@ -77,7 +142,6 @@ public class NPNGraphicalSimulatorCMSaveALCodeHandler extends AbstractHandler {
 			}
 			epnets.put(nt.getUuid(), currNet);
 		}
-		
 		out.put("EPnets", epnets);
 		return out;
 	}

@@ -48,15 +48,16 @@ public class NPNGraphicalSimulatorCMLoadALCodeHandler extends AbstractHandler {
 	}
 
 	private void proceedCode(String code) throws JSONException {
+		NPNDiagramNetSystem sNet = Simulator.net.getDiagramNetSystem();
 		
 		JSONTokener tok = new JSONTokener(code);
 		JSONObject obj = new JSONObject(tok);
 
 		// SPnet
 		JSONObject spNet = (JSONObject) obj.get("SPnet");
-		for (NPNSymbolNodeSN nd : Simulator.net.getDiagramNetSystem().getNodes()) {
-			if (spNet.has(nd.getModel().getUuid()) && nd instanceof NPNSymbolTransitionSNImpl) {
-				String trCode = spNet.getString(nd.getModel().getUuid());
+		for (NPNSymbolNodeSN nd : sNet.getNodes()) {
+			if (obj.has(nd.getModel().getUuid()) && nd instanceof NPNSymbolTransitionSNImpl) {
+				String trCode = obj.getString(nd.getModel().getUuid());
 				TransitionWithALCode alTrans = reset((Transition)nd.getModel(), (NPNSymbolTransitionSN)nd);
 				alTrans.setCode(trCode);
 			}

@@ -66,7 +66,6 @@ public class NPNGraphicalSimulatorCMSaveALCodeHandler extends AbstractHandler {
 			}
 		}
 		out.put("SPnet", spnetTrans);
-		
 		JSONObject epnets = new JSONObject();
 		for (TokenTypeElementNet nt : Simulator.net.getNet().getTypeElementNet()) {
 			JSONObject currNet = new JSONObject();
@@ -77,7 +76,6 @@ public class NPNGraphicalSimulatorCMSaveALCodeHandler extends AbstractHandler {
 			}
 			epnets.put(nt.getUuid(), currNet);
 		}
-		
 		out.put("EPnets", epnets);
 		return out;
 	}

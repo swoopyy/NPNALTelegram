@@ -20,7 +20,6 @@ public class NPNGraphicalSimulatorCMCompileHandler extends AbstractHandler{
 		}
 		System.out.println("SPNET");
 		for(Node nd: Simulator.net.getNet().getNetSystem().getNodes()){
-			System.out.println(nd.getClass());
 			if(nd instanceof TransitionWithALCode){
 				System.out.println("Code= " + nd.getUuid());
 				TransitionWithALCode tr = (TransitionWithALCode)nd;

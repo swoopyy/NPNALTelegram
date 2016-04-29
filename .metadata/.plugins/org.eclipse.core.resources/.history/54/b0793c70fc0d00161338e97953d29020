@@ -21,10 +21,7 @@ import ru.mathtech.npntool.npnets.highlevelnets.npnets.model.NPnet;
 import ru.mathtech.npntool.npnets.highlevelnets.npnets.model.TransitionWithALCode;
 import ru.mathtech.npntool.npnets.highlevelnets.npnets.model.impl.TransitionWithALCodeImpl;
 import ru.mathtech.npntool.npnets.highlevelnets.tokentypes.TokenTypeElementNet;
-import ru.mathtech.npntool.npnets.npndiagrams.NPNDiagramNetSystem;
-import ru.mathtech.npntool.npnets.npndiagrams.NPNSymbolNodeSN;
 import ru.mathtech.npntool.npnets.npndiagrams.NPNSymbolTransitionSN;
-import ru.mathtech.npntool.npnets.npndiagrams.impl.NPNSymbolTransitionSNImpl;
 
 public class NPNGraphicalSimulatorCMLoadALCodeHandler extends AbstractHandler {
 
@@ -48,16 +45,17 @@ public class NPNGraphicalSimulatorCMLoadALCodeHandler extends AbstractHandler {
 	}
 
 	private void proceedCode(String code) throws JSONException {
-		
+		NPnet sNet = Simulator.net.getNet();
 		JSONTokener tok = new JSONTokener(code);
 		JSONObject obj = new JSONObject(tok);
 
 		// SPnet
 		JSONObject spNet = (JSONObject) obj.get("SPnet");
-		for (NPNSymbolNodeSN nd : Simulator.net.getDiagramNetSystem().getNodes()) {
-			if (spNet.has(nd.getModel().getUuid()) && nd instanceof NPNSymbolTransitionSNImpl) {
-				String trCode = spNet.getString(nd.getModel().getUuid());
-				TransitionWithALCode alTrans = reset((Transition)nd.getModel(), (NPNSymbolTransitionSN)nd);
+		for (Node nd : sNet.getNetSystem().getNodes()) {
+			
+			if (obj.has(nd.getUuid())) {
+				String trCode = obj.getString(nd.getUuid());
+				TransitionWithALCode alTrans = reset((Transition) nd);
 				alTrans.setCode(trCode);
 			}
 			
@@ -70,11 +68,11 @@ public class NPNGraphicalSimulatorCMLoadALCodeHandler extends AbstractHandler {
 				
 				JSONObject currNet = epNets.getJSONObject(nt.getUuid());
 				
-				for (NPNSymbolNodeSN nd: nt.getDiagram().getNodes()) {
+				for (Node nd : nt.getNet().getNodes()) {
 					
-					if (currNet.has(nd.getModel().getUuid()) && nd instanceof NPNSymbolTransitionSNImpl) {
-						String trCode = currNet.getString(nd.getModel().getUuid());
-						TransitionWithALCode alTrans = reset((Transition)nd.getModel(), (NPNSymbolTransitionSN)nd);
+					if (currNet.has(nd.getUuid())) {
+						String trCode = obj.getString(nd.getUuid());
+						TransitionWithALCode alTrans = reset((Transition) nd);
 						alTrans.setCode(trCode);
 					}
 					
@@ -94,7 +92,7 @@ public class NPNGraphicalSimulatorCMLoadALCodeHandler extends AbstractHandler {
 
 	}
 
-	protected TransitionWithALCode reset(Transition input, NPNSymbolTransitionSN symbol) {
+	protected TransitionWithALCode reset(Transition input) {
 		TransitionWithALCode ts = new TransitionWithALCodeImpl();
 		ts.setUuid(input.getUuid());
 		ts.setName(input.getName());
@@ -102,8 +100,8 @@ public class NPNGraphicalSimulatorCMLoadALCodeHandler extends AbstractHandler {
 		ts.setNet(input.getNet());
 		ts.setFirstTimeConstraint(input.getFirstTimeConstraint());
 		ts.setSecondTimeConstraint(input.getSecondTimeConstraint());
-		symbol.setModel(ts);
 		resolveArcs(input, ts);
+		((NPNSymbolTransitionSN) input).setModel(ts);
 		input.getNet().getNodes().remove(input);
 		input.setNet(null);
 		return ts;
