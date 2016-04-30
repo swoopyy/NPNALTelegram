@@ -39,5 +39,11 @@ public class NPNGraphicalSimulatorCMCompileHandler extends AbstractHandler{
 		}
 		return null;
 	}
+	
+	private String getCodeFromTokenTypeElementNet(TokenTypeElementNet eNet){
+		StringBuilder bld = new StringBuilder();
+		
+		return bld.toString();
+	}
 
 }

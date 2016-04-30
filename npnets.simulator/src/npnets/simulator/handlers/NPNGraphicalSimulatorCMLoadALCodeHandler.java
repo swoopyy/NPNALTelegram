@@ -32,7 +32,7 @@ public class NPNGraphicalSimulatorCMLoadALCodeHandler extends AbstractHandler {
 	public Object execute(ExecutionEvent arg0) throws ExecutionException {
 		FileDialog id = new FileDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell(), SWT.OPEN);
 		id.setFilterNames(new String[] { "AL Files" });
-		id.setFilterExtensions(new String[] { "*.al" });
+		id.setFilterExtensions(new String[] { "*.json" });
 		String path = id.open();
 		if (path != null) {
 			String alCode = readFile(path);
@@ -60,7 +60,6 @@ public class NPNGraphicalSimulatorCMLoadALCodeHandler extends AbstractHandler {
 				TransitionWithALCode alTrans = reset((Transition)nd.getModel(), (NPNSymbolTransitionSN)nd);
 				alTrans.setCode(trCode);
 			}
-			
 		}
 
 		// EPNet
@@ -71,7 +70,6 @@ public class NPNGraphicalSimulatorCMLoadALCodeHandler extends AbstractHandler {
 				JSONObject currNet = epNets.getJSONObject(nt.getUuid());
 				
 				for (NPNSymbolNodeSN nd: nt.getDiagram().getNodes()) {
-					
 					if (currNet.has(nd.getModel().getUuid()) && nd instanceof NPNSymbolTransitionSNImpl) {
 						String trCode = currNet.getString(nd.getModel().getUuid());
 						TransitionWithALCode alTrans = reset((Transition)nd.getModel(), (NPNSymbolTransitionSN)nd);

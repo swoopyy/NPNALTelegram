@@ -32,7 +32,7 @@ public class NPNGraphicalSimulatorCMSaveALCodeHandler extends AbstractHandler {
 		}
 		FileDialog id = new FileDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell(), SWT.SAVE);
 		id.setFilterNames(new String[] { "AL Files" });
-		id.setFilterExtensions(new String[] { ".al" });
+		id.setFilterExtensions(new String[] { ".json" });
 		String path = id.open();
 		if (path != null) {
 			writeToFile(obj, path);
