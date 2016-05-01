@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import org.eclipse.emf.ecore.util.EcoreUtil.EqualityHelper;
-
 import ru.mathtech.npntool.npnets.highlevelnets.hlpn.ArcPT;
 import ru.mathtech.npntool.npnets.highlevelnets.hlpn.ArcTP;
 import ru.mathtech.npntool.npnets.highlevelnets.hlpn.HighLevelPetriNet;
@@ -31,123 +29,132 @@ public class ALCodeLinker {
 	private final String CONFIRMATIONTEXT = "OK";
 	private int taskNumber = 0;
 	
-	//hardcoding
-	private final String EQUIPMENT = "equipment";
-
-	public String extractCodeFromElementNet(HighLevelPetriNet net) {
+	public String extractCodeFromElementNet(HighLevelPetriNet net){
+		
 		StringBuilder code = new StringBuilder();
-		try {
-			for (Node node : net.getNodes()) {
-				if (node.getName() != null && node.getName().equals("begin")) {
-					Transition transition = (Transition) node;
-					Place place = transition.getOutArcs().get(0).getTarget();
-					code.append(collectConcurrentCodeFromBegin(place));
-				}
+		try{
+		for(Node node: net.getNodes()){
+			if(node.getName() != null && node.getName().equals("begin")){
+				Transition transition = (Transition)node;
+				Place place = transition.getOutArcs().get(0).getTarget();
+				code.append(getTasksWorkflowFromConcurrentPlace(place));
 			}
-		} catch (NullPointerException ex) {
+		}
+		} catch(NullPointerException ex){
 			ex.printStackTrace();
+			System.out.println(ex.getMessage()); //REMOVE
+			return "no";
 		}
 		return code.toString();
+		
 	}
 	
-
-	private String collectConcurrentCodeFromBegin(Place beginPlace) {
+	
+	private String getTasksWorkflowFromConcurrentPlace(Place place){
 		String s = "";
-		String taskName = newTask();
-		String finalTaskName = newTask();
-		List<TransitionWithALCode> targetTransitions = getTargetTransitions(beginPlace.getOutArcs());
+		String taskName = TASK + taskNumber++;
+		String finalTaskName = TASK + taskNumber++;
+		List<TransitionWithALCode> targetTransitions = getTargetTransitions(place.getOutArcs());
 		s = createCodeForConcurrentTransitions(taskName, finalTaskName, targetTransitions);
 		return s;
 	}
-
-	// main task
-	private String createCodeForConcurrentTransitions(String taskName, String finalTaskName, List<TransitionWithALCode> transitions) {
+	
+	
+	
+	//main task
+	private String createCodeForConcurrentTransitions(String taskName, String finalTaskName, List<TransitionWithALCode> transitions){
 		StringBuilder code = new StringBuilder(TASK + " " + taskName + LBRACKET + LINEBREAK);
 		List<String> nextTasks = new ArrayList<>();
 		int transitionNumber = transitions.size();
-		
-		if (transitionNumber == 1) {
+		if(transitionNumber == 1){
 			nextTasks.add(finalTaskName);
-		} else {
+		} else{
 			fillNewTaskNames(nextTasks, transitionNumber);
 		}
-
-		// Task creation
-		for (int i = 0; i < transitionNumber; ++i) {
+	
+		
+		//Task creation
+		for(int i = 0; i<transitionNumber; ++i){
 			TransitionWithALCode transition = transitions.get(i);
+			if(isComplexTransition(transition)){
+				String complexTransitionName = TASK + taskNumber++;
+				//List<TransitiionWithALCode> complexTransitions = getTargetTransitions(transition.get)
+				//String additionalCode = createCodeForConcurrentTransitions(, finalTaskName, transitions)
+			}
 			String partOfCode = extractCodeFromTransition(transitions.get(i));
 			partOfCode = insertConfirmationIntoPart(nextTasks.get(i), partOfCode);
 			code.append(LINEBREAK);
 			code.append(partOfCode);
 		}
+		
 		code.append(RBRACKET);
-
-		if (transitionNumber == 1) {
+		
+		if(transitionNumber == 1){
 			return code.toString();
 		}
-
-		// Recursively absorbing
-		for (int i = 0; i < transitionNumber; ++i) {
-			if(transitions.get(i).getName().equals(EQUIPMENT)){
-				List<TransitionWithALCode> transitionsForEquipment = getTargetTransitions(transitions.get(i).getOutArcs().get(0).getTarget().getOutArcs());
-				//System.out.println("EQUIPMENT =" + transitionsForEquipment.size());
-				String equipmentFinalTask = newTask();
-				code.append(createCodeForConcurrentTransitions(nextTasks.get(i), equipmentFinalTask, transitionsForEquipment));
-				nextTasks.set(i, equipmentFinalTask);
-			}
+		
+		//Recursively absorbing
+		for(int i = 0; i < transitionNumber; ++i){
 			List<TransitionWithALCode> transitionsForTheNextTask = createNewListWithoutTransition(transitions, transitions.get(i));
+			System.out.println("SIZE=" + transitionsForTheNextTask.size()); //REMOVE
 			code.append(createCodeForConcurrentTransitions(nextTasks.get(i), finalTaskName, transitionsForTheNextTask));
 		}
-
+		
+		
 		return code.toString();
 	}
-
+	
+	//verify whether a transition leads to a concurrent or single-linked transition
+	private boolean isComplexTransition(Transition t){
+	 Place place = t.getOutArcs().get(0).getTarget();
+	 Transition curr = place.getOutArcs().get(0).getTarget();
+	 return place.getOutArcs().size() > 1 || curr.getInArcs().size() == 1;
+	}
+	
 	private void fillNewTaskNames(List<String> list, int size) {
-		for (int i = 0; i < size; ++i) {
-			list.add(newTask());
+		for(int i = 0; i<size; ++i){
+			list.add(TASK + taskNumber++);
 		}
 	}
-
-	private List<TransitionWithALCode> createNewListWithoutTransition(List<TransitionWithALCode> list, TransitionWithALCode trans) {
+	private List<TransitionWithALCode> createNewListWithoutTransition(List<TransitionWithALCode> list, TransitionWithALCode trans){
 		List<TransitionWithALCode> out = new ArrayList<TransitionWithALCode>(list);
 		out.remove(trans);
 		return out;
 	}
-
-	private String insertConfirmationIntoPart(String confirmTask, String part) {
+	private String insertConfirmationIntoPart(String confirmTask, String part){
 		int placeToInsert = part.lastIndexOf('}');
 		StringBuilder out = new StringBuilder(part);
-		String confirmation = CONFIRMATION + COLON + LINEBREAK + QUOTE + CONFIRMATIONTEXT + QUOTE + ARROW + confirmTask + LINEBREAK;
+		String confirmation = CONFIRMATION + COLON + LINEBREAK + 
+				QUOTE + CONFIRMATIONTEXT + QUOTE + ARROW + confirmTask + LINEBREAK;
 		out.insert(placeToInsert, confirmation);
 		return out.toString();
 	}
-
-	private List<Transition> getSourceTransitions(List<ArcTP> arcs) {
+	
+	private List<Transition> getSourceTransitions(List<ArcTP> arcs){
 		List<Transition> outList = new ArrayList<Transition>();
-		for (ArcTP arc : arcs) {
+		for(ArcTP arc: arcs){
 			outList.add(arc.getSource());
 		}
 		return outList;
 	}
-
-	private List<TransitionWithALCode> getTargetTransitions(List<ArcPT> arcs) {
+	
+	private List<TransitionWithALCode> getTargetTransitions(List<ArcPT> arcs){
 		List<TransitionWithALCode> outList = new ArrayList<TransitionWithALCode>();
-		for (ArcPT arc : arcs) {
-			if (arc.getTarget() != null) {
-				outList.add((TransitionWithALCode) arc.getTarget());
+		for(ArcPT arc: arcs){
+			if(arc.getTarget() != null){
+				outList.add((TransitionWithALCode)arc.getTarget());
 			}
 		}
 		return outList;
 	}
-
-	private void loadCurrentNetTransitionsToMaps(HighLevelPetriNet net) {
+	private void loadCurrentNetTransitionsToMaps(HighLevelPetriNet net){
 		nameToTrans = new HashMap<String, TransitionWithALCode>();
 		uuidToTrans = new HashMap<String, TransitionWithALCode>();
 		uuidToCode = new HashMap<String, String>();
 		transitions = new ArrayList<TransitionWithALCode>();
-		for (Node nd : net.getNodes()) {
-			if (nd instanceof TransitionWithALCode) {
-				TransitionWithALCode trans = (TransitionWithALCode) nd;
+		for(Node nd: net.getNodes()){
+			if(nd instanceof TransitionWithALCode){
+				TransitionWithALCode trans = (TransitionWithALCode)nd;
 				String code = extractCodeFromTransition(trans);
 				String transName = extractNameFromTransition(trans);
 				nameToTrans.put(transName, trans);
@@ -156,34 +163,29 @@ public class ALCodeLinker {
 			}
 		}
 	}
-
-	private String extractCodeFromTransition(TransitionWithALCode trans) {
-		if (trans != null) { // REMOVE
-			//System.out.println("OK\n" + trans.getCode());
-		} else {
-			//System.out.println("Here we are!");
+	
+	private String extractCodeFromTransition(TransitionWithALCode trans){
+		if(trans != null){ //REMOVE
+			System.out.println("OK\n"+trans.getCode());
+		} else{
+			System.out.println("Here we are!");
 		}
 		int lbracket = trans.getCode().indexOf("{");
 		int rbracket = trans.getCode().lastIndexOf("}");
-		if (lbracket == -1 || rbracket == -1) {
+		if(lbracket == -1 || rbracket == -1){
 			return null;
 		}
 		return trans.getCode().substring(lbracket + 1, rbracket);
 	}
-
-	private String extractNameFromTransition(TransitionWithALCode trans) {
+	
+	private String extractNameFromTransition(TransitionWithALCode trans){
 		int space = trans.getCode().indexOf(" ");
 		int equal = trans.getCode().indexOf("=");
 		int upTo = Math.min(space, equal);
 		return trans.getCode().substring(0, upTo);
 	}
-
-	private String getCodeFromTokenTypeElementNet(TokenTypeElementNet eNet) {
+	private String getCodeFromTokenTypeElementNet(TokenTypeElementNet eNet){
 		StringBuilder bld = new StringBuilder();
 		return bld.toString();
-	}
-	
-	private String newTask(){
-		return TASK + taskNumber++;
 	}
 }

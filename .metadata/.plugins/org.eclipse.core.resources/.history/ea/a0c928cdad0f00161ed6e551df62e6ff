@@ -88,9 +88,8 @@ public class ALCodeLinker {
 
 		// Recursively absorbing
 		for (int i = 0; i < transitionNumber; ++i) {
-			if(transitions.get(i).getName().equals(EQUIPMENT)){
+			if(transitions.get(i).equals(EQUIPMENT)){
 				List<TransitionWithALCode> transitionsForEquipment = getTargetTransitions(transitions.get(i).getOutArcs().get(0).getTarget().getOutArcs());
-				//System.out.println("EQUIPMENT =" + transitionsForEquipment.size());
 				String equipmentFinalTask = newTask();
 				code.append(createCodeForConcurrentTransitions(nextTasks.get(i), equipmentFinalTask, transitionsForEquipment));
 				nextTasks.set(i, equipmentFinalTask);
@@ -159,9 +158,9 @@ public class ALCodeLinker {
 
 	private String extractCodeFromTransition(TransitionWithALCode trans) {
 		if (trans != null) { // REMOVE
-			//System.out.println("OK\n" + trans.getCode());
+			System.out.println("OK\n" + trans.getCode());
 		} else {
-			//System.out.println("Here we are!");
+			System.out.println("Here we are!");
 		}
 		int lbracket = trans.getCode().indexOf("{");
 		int rbracket = trans.getCode().lastIndexOf("}");
