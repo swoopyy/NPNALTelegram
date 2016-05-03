@@ -77,13 +77,12 @@ public class ALCodeLinker {
 		String sosVictimEndup = newTask();
 		partOfCode = insertConfirmationIntoPart(sosVictimEndup, partOfCode); 
 		builder.append(partOfCode);
-		builder.append(RCURLYBRACKET);
-		builder.append(collectVictimSosEndUpCode(startTask, sosVictimEndup));
+		builder.append(collectVictimSosEndUpCode(builder.toString(), startTask, sosVictimEndup));
 		return builder.toString();
 	}
 	
-	private String collectVictimSosEndUpCode(String startTask, String initialTask){
-		StringBuilder builder = new StringBuilder();
+	private String collectVictimSosEndUpCode(String previousCode, String startTask, String initialTask){
+		StringBuilder builder = new StringBuilder(previousCode);
 		builder.append(LINEBREAK);
 		TransitionWithALCode victim = findTransitionByName(VICTIM);
 		TransitionWithALCode endup = findTransitionByName(ENDUP);
