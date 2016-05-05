@@ -222,14 +222,13 @@ public class ALCodeLinker {
 	}
 	
 	private void insertAwaitIfCorrespondsToSPNet(StringBuilder code, TransitionWithALCode tr){
-		int indexOfRbracket = code.lastIndexOf(RCURLYBRACKET);
 		for(Node nd: spNet.getNodes()){
 			if(nd instanceof TransitionWithALCode){
 				TransitionWithALCode trans = (TransitionWithALCode)nd;
 				if(trans.getName().equals(tr.getName())){
 					String transitionCode = trans.getCode();
 					int equalIndex = transitionCode.indexOf("=");
-					code.insert(indexOfRbracket, transitionCode.substring(equalIndex + 1, transitionCode.length()));
+					code.append(transitionCode.substring(equalIndex + 1, transitionCode.length()));
 				}
 			}
 		}

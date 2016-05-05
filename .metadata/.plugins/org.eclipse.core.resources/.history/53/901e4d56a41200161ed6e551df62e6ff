@@ -33,9 +33,9 @@ public class NPNGraphicalSimulatorCMCompileHandler extends AbstractHandler{
 	@Override
 	public Object execute(ExecutionEvent arg0) throws ExecutionException {
 		HighLevelPetriNet epNet = Simulator.net.getNet().getTypeElementNet().get(0).getNet();
+		String code = new ALCodeLinker(epNet).extractCodeFromElementNet();
 		HighLevelPetriNet spNet = Simulator.net.getNet().getNetSystem();
-		String code = new ALCodeLinker(epNet, spNet).extractCodeFromElementNet();
-		System.out.println(code);
+		testSPNet(spNet);
 		writeToFile(pathToSafe, code);
 		return null;
 	}

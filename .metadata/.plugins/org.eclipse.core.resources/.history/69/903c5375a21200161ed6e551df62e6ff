@@ -82,7 +82,6 @@ public class ALCodeLinker {
 		String sosVictimEndup = newTask();
 		partOfCode = insertConfirmationIntoPart(sosVictimEndup, partOfCode); 
 		builder.append(partOfCode);
-		insertAwaitIfCorrespondsToSPNet(builder, start);
 		builder.append(RCURLYBRACKET);
 		builder.append(collectVictimSosEndUpCode(startTask, sosVictimEndup));
 		return builder.toString();
@@ -98,15 +97,12 @@ public class ALCodeLinker {
 		String partOfCode = extractCodeFromTransition(sos);
 		partOfCode = insertConfirmationIntoPart(initialTask, partOfCode);
 		builder.append(partOfCode);
-		insertAwaitIfCorrespondsToSPNet(builder, sos);
 		partOfCode = extractCodeFromTransition(victim);
 		partOfCode = insertConfirmationIntoPart(initialTask, partOfCode); 
 		builder.append(partOfCode);
-		insertAwaitIfCorrespondsToSPNet(builder, victim);
 		partOfCode = extractCodeFromTransition(endup);
 		partOfCode = insertConfirmationIntoPart(startTask, partOfCode); 
 		builder.append(partOfCode);
-		insertAwaitIfCorrespondsToSPNet(builder, endup);
 		builder.append(RCURLYBRACKET);
 		return builder.toString();
 	}
@@ -146,7 +142,6 @@ public class ALCodeLinker {
 			partOfCode = insertConfirmationIntoPart(nextTasks.get(i), partOfCode);
 			code.append(LINEBREAK);
 			code.append(partOfCode);
-			insertAwaitIfCorrespondsToSPNet(code, transition);
 		}
 		code.append(RCURLYBRACKET);
 
@@ -222,14 +217,11 @@ public class ALCodeLinker {
 	}
 	
 	private void insertAwaitIfCorrespondsToSPNet(StringBuilder code, TransitionWithALCode tr){
-		int indexOfRbracket = code.lastIndexOf(RCURLYBRACKET);
 		for(Node nd: spNet.getNodes()){
 			if(nd instanceof TransitionWithALCode){
 				TransitionWithALCode trans = (TransitionWithALCode)nd;
 				if(trans.getName().equals(tr.getName())){
-					String transitionCode = trans.getCode();
-					int equalIndex = transitionCode.indexOf("=");
-					code.insert(indexOfRbracket, transitionCode.substring(equalIndex + 1, transitionCode.length()));
+					
 				}
 			}
 		}

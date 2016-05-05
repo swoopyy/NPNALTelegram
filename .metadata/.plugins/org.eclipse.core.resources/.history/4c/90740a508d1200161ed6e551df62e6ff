@@ -29,13 +29,13 @@ import ru.mathtech.npntool.npnets.highlevelnets.hlpn.ArcPT;
 
 
 public class NPNGraphicalSimulatorCMCompileHandler extends AbstractHandler{
-	final String pathToSafe = "/Users/denissamohvalov/Documents/CourseworkMaven/src/main/java/ru/mathtech/translator/test/generated_test.action";
+	final String pathToSafe = "/Users/denissamohvalov/Documents/CourseworkMaven/src/main/java/translator/test/generated_test.action";
 	@Override
 	public Object execute(ExecutionEvent arg0) throws ExecutionException {
 		HighLevelPetriNet epNet = Simulator.net.getNet().getTypeElementNet().get(0).getNet();
+		String code = new ALCodeLinker(epNet).extractCodeFromElementNet();
 		HighLevelPetriNet spNet = Simulator.net.getNet().getNetSystem();
-		String code = new ALCodeLinker(epNet, spNet).extractCodeFromElementNet();
-		System.out.println(code);
+		testSPNet(spNet);
 		writeToFile(pathToSafe, code);
 		return null;
 	}
