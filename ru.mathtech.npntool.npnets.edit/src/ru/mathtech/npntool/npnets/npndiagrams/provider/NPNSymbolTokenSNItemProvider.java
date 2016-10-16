@@ -37,14 +37,7 @@ import ru.mathtech.npntool.npnets.npndiagrams.NPNSymbolTokenSN;
  * @generated
  */
 public class NPNSymbolTokenSNItemProvider
-	extends IEntityIdentifiableItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource,
-		ITableItemLabelProvider {
+	extends IEntityIdentifiableItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -67,7 +60,6 @@ public class NPNSymbolTokenSNItemProvider
 			super.getPropertyDescriptors(object);
 
 			addConstraintsPropertyDescriptor(object);
-			addModelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -148,9 +140,6 @@ public class NPNSymbolTokenSNItemProvider
 
 		switch (notification.getFeatureID(NPNSymbolTokenSN.class)) {
 			case NPNDiagramsPackage.NPN_SYMBOL_TOKEN_SN__CONSTRAINTS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case NPNDiagramsPackage.NPN_SYMBOL_TOKEN_SN__MODEL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

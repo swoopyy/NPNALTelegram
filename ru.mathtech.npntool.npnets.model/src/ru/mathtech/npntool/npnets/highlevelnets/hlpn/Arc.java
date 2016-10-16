@@ -16,7 +16,7 @@ import ru.mathtech.npntool.npnets.highlevelnets.common.INetElement;
  * </ul>
  * </p>
  *
- * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HlpnPackage#getArc()
+ * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage#getArc()
  * @model abstract="true"
  * @generated
  */
@@ -32,7 +32,7 @@ public interface Arc extends INetElement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Net</em>' container reference.
 	 * @see #setNet(HighLevelPetriNet)
-	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HlpnPackage#getArc_Net()
+	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage#getArc_Net()
 	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HighLevelPetriNet#getArcs
 	 * @model opposite="arcs" required="true" transient="false"
 	 * @generated

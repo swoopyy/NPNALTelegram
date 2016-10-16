@@ -27,14 +27,7 @@ import ru.mathtech.npntool.npnets.npndiagrams.NPNSymbolTransitionSN;
  * @generated
  */
 public class NPNSymbolTransitionSNItemProvider
-	extends NPNSymbolNodeSNItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource,
-		ITableItemLabelProvider {
+	extends NPNSymbolNodeSNItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

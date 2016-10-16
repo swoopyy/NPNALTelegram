@@ -32,7 +32,7 @@ public class NPNDiagramsFactoryImpl extends EFactoryImpl implements NPNDiagramsF
 	 */
 	public static NPNDiagramsFactory init() {
 		try {
-			NPNDiagramsFactory theNPNDiagramsFactory = (NPNDiagramsFactory)EPackage.Registry.INSTANCE.getEFactory("http:/mathtech.ru/npntool/npndiagrams"); //$NON-NLS-1$ 
+			NPNDiagramsFactory theNPNDiagramsFactory = (NPNDiagramsFactory)EPackage.Registry.INSTANCE.getEFactory(NPNDiagramsPackage.eNS_URI);
 			if (theNPNDiagramsFactory != null) {
 				return theNPNDiagramsFactory;
 			}

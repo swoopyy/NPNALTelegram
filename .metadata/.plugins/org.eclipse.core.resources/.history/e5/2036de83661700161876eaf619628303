@@ -1,0 +1,10 @@
+source.. = src/
+output.. = bin/
+bin.includes = META-INF/,\
+               .,\
+               plugin.xml,\
+               plugin.properties,\
+               lib/,\
+               lib/CouSHOT-jar-with-dependencies.jar
+jars.compile.order = .
+src.includes = lib/

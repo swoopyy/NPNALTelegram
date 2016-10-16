@@ -31,13 +31,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class NodeItemProvider
-	extends INetElementItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends INetElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -76,8 +70,8 @@ public class NodeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Node_firstTimeConstraint_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Node_firstTimeConstraint_feature", "_UI_Node_type"),
+				 getString("_UI_Node_firstTimeConstraint_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Node_firstTimeConstraint_feature", "_UI_Node_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 HLPNPackage.Literals.NODE__FIRST_TIME_CONSTRAINT,
 				 true,
 				 false,
@@ -98,8 +92,8 @@ public class NodeItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Node_secondTimeConstraint_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Node_secondTimeConstraint_feature", "_UI_Node_type"),
+				 getString("_UI_Node_secondTimeConstraint_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Node_secondTimeConstraint_feature", "_UI_Node_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 HLPNPackage.Literals.NODE__SECOND_TIME_CONSTRAINT,
 				 true,
 				 false,
@@ -119,8 +113,8 @@ public class NodeItemProvider
 	public String getText(Object object) {
 		String label = ((Node)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Node_type") :
-			getString("_UI_Node_type") + " " + label;
+			getString("_UI_Node_type") : //$NON-NLS-1$
+			getString("_UI_Node_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  *
- * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HlpnPackage#getTransition()
+ * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage#getTransition()
  * @model
  * @generated
  */
@@ -33,7 +33,7 @@ public interface Transition extends ContextVariable, Node {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>In Arcs</em>' reference list.
-	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HlpnPackage#getTransition_InArcs()
+	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage#getTransition_InArcs()
 	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.ArcPT#getTarget
 	 * @model opposite="target"
 	 * @generated
@@ -51,7 +51,7 @@ public interface Transition extends ContextVariable, Node {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Out Arcs</em>' reference list.
-	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HlpnPackage#getTransition_OutArcs()
+	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage#getTransition_OutArcs()
 	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.ArcTP#getSource
 	 * @model opposite="source"
 	 * @generated

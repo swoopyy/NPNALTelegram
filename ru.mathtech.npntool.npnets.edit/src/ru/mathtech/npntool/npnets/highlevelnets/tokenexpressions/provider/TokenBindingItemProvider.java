@@ -34,14 +34,7 @@ import ru.mathtech.npntool.npnets.highlevelnets.tokenexpressions.TokenExpression
  * @generated
  */
 public class TokenBindingItemProvider
-	extends IEntityIdentifiableItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource,
-		ITableItemLabelProvider {
+	extends IEntityIdentifiableItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

@@ -38,14 +38,7 @@ import ru.mathtech.npntool.npnets.highlevelnets.tokenexpressions.TokenMultisetEx
  * @generated
  */
 public class TokenMultisetExpressionItemProvider
-	extends IEntityIdentifiableItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource,
-		ITableItemLabelProvider {
+	extends IEntityIdentifiableItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

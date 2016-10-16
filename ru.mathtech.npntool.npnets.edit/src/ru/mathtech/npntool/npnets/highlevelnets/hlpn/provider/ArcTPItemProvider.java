@@ -33,13 +33,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class ArcTPItemProvider
-	extends ArcItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ArcItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -63,8 +57,8 @@ public class ArcTPItemProvider
 
 			addSourcePropertyDescriptor(object);
 			addTargetPropertyDescriptor(object);
-			addFirstTimeConstraintPropertyDescriptor(object);
 			addSecondTimeConstraintPropertyDescriptor(object);
+			addFirstTimeConstraintPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -80,8 +74,8 @@ public class ArcTPItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ArcTP_source_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ArcTP_source_feature", "_UI_ArcTP_type"),
+				 getString("_UI_ArcTP_source_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ArcTP_source_feature", "_UI_ArcTP_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 HLPNPackage.Literals.ARC_TP__SOURCE,
 				 true,
 				 false,
@@ -102,8 +96,8 @@ public class ArcTPItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ArcTP_target_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ArcTP_target_feature", "_UI_ArcTP_type"),
+				 getString("_UI_ArcTP_target_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ArcTP_target_feature", "_UI_ArcTP_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 HLPNPackage.Literals.ARC_TP__TARGET,
 				 true,
 				 false,
@@ -124,8 +118,8 @@ public class ArcTPItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ArcTP_firstTimeConstraint_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ArcTP_firstTimeConstraint_feature", "_UI_ArcTP_type"),
+				 getString("_UI_ArcTP_firstTimeConstraint_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ArcTP_firstTimeConstraint_feature", "_UI_ArcTP_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 HLPNPackage.Literals.ARC_TP__FIRST_TIME_CONSTRAINT,
 				 true,
 				 false,
@@ -146,8 +140,8 @@ public class ArcTPItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ArcTP_secondTimeConstraint_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ArcTP_secondTimeConstraint_feature", "_UI_ArcTP_type"),
+				 getString("_UI_ArcTP_secondTimeConstraint_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ArcTP_secondTimeConstraint_feature", "_UI_ArcTP_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 HLPNPackage.Literals.ARC_TP__SECOND_TIME_CONSTRAINT,
 				 true,
 				 false,
@@ -195,7 +189,7 @@ public class ArcTPItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ArcTP"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ArcTP")); //$NON-NLS-1$
 	}
 
 	/**
@@ -208,8 +202,8 @@ public class ArcTPItemProvider
 	public String getText(Object object) {
 		String label = ((ArcTP)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ArcTP_type") :
-			getString("_UI_ArcTP_type") + " " + label;
+			getString("_UI_ArcTP_type") : //$NON-NLS-1$
+			getString("_UI_ArcTP_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -224,8 +218,8 @@ public class ArcTPItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ArcTP.class)) {
-			case HLPNPackage.ARC_TP__FIRST_TIME_CONSTRAINT:
 			case HLPNPackage.ARC_TP__SECOND_TIME_CONSTRAINT:
+			case HLPNPackage.ARC_TP__FIRST_TIME_CONSTRAINT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case HLPNPackage.ARC_TP__INSCRIPTION:

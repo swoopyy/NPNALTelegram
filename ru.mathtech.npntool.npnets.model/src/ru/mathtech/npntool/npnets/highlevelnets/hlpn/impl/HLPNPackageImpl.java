@@ -142,29 +142,29 @@ public class HLPNPackageImpl extends EPackageImpl implements HLPNPackage {
 
 		// Obtain or create and register interdependencies
 		MarkingPackageImpl theMarkingPackage = (MarkingPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MarkingPackage.eNS_URI) instanceof MarkingPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MarkingPackage.eNS_URI) : MarkingPackage.eINSTANCE);
-		TokenTypesPackageImpl theTokentypesPackage = (TokenTypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TokenTypesPackage.eNS_URI) instanceof TokenTypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TokenTypesPackage.eNS_URI) : TokenTypesPackage.eINSTANCE);
-		TokenExpressionsPackageImpl theTokenexpressionsPackage = (TokenExpressionsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TokenExpressionsPackage.eNS_URI) instanceof TokenExpressionsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TokenExpressionsPackage.eNS_URI) : TokenExpressionsPackage.eINSTANCE);
-		NPNetsPackageImpl theNpnetsPackage = (NPNetsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(NPNetsPackage.eNS_URI) instanceof NPNetsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(NPNetsPackage.eNS_URI) : NPNetsPackage.eINSTANCE);
+		TokenTypesPackageImpl theTokenTypesPackage = (TokenTypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TokenTypesPackage.eNS_URI) instanceof TokenTypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TokenTypesPackage.eNS_URI) : TokenTypesPackage.eINSTANCE);
+		TokenExpressionsPackageImpl theTokenExpressionsPackage = (TokenExpressionsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TokenExpressionsPackage.eNS_URI) instanceof TokenExpressionsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TokenExpressionsPackage.eNS_URI) : TokenExpressionsPackage.eINSTANCE);
+		NPNetsPackageImpl theNPNetsPackage = (NPNetsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(NPNetsPackage.eNS_URI) instanceof NPNetsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(NPNetsPackage.eNS_URI) : NPNetsPackage.eINSTANCE);
 		CommonPackageImpl theCommonPackage = (CommonPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) instanceof CommonPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI) : CommonPackage.eINSTANCE);
-		NPNDiagramsPackageImpl theNpndiagramsPackage = (NPNDiagramsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(NPNDiagramsPackage.eNS_URI) instanceof NPNDiagramsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(NPNDiagramsPackage.eNS_URI) : NPNDiagramsPackage.eINSTANCE);
+		NPNDiagramsPackageImpl theNPNDiagramsPackage = (NPNDiagramsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(NPNDiagramsPackage.eNS_URI) instanceof NPNDiagramsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(NPNDiagramsPackage.eNS_URI) : NPNDiagramsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theHLPNPackage.createPackageContents();
 		theMarkingPackage.createPackageContents();
-		theTokentypesPackage.createPackageContents();
-		theTokenexpressionsPackage.createPackageContents();
-		theNpnetsPackage.createPackageContents();
+		theTokenTypesPackage.createPackageContents();
+		theTokenExpressionsPackage.createPackageContents();
+		theNPNetsPackage.createPackageContents();
 		theCommonPackage.createPackageContents();
-		theNpndiagramsPackage.createPackageContents();
+		theNPNDiagramsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theHLPNPackage.initializePackageContents();
 		theMarkingPackage.initializePackageContents();
-		theTokentypesPackage.initializePackageContents();
-		theTokenexpressionsPackage.initializePackageContents();
-		theNpnetsPackage.initializePackageContents();
+		theTokenTypesPackage.initializePackageContents();
+		theTokenExpressionsPackage.initializePackageContents();
+		theNPNetsPackage.initializePackageContents();
 		theCommonPackage.initializePackageContents();
-		theNpndiagramsPackage.initializePackageContents();
+		theNPNDiagramsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theHLPNPackage.freeze();
@@ -343,7 +343,7 @@ public class HLPNPackageImpl extends EPackageImpl implements HLPNPackage {
 	 * @generated
 	 */
 	public EAttribute getArcTP_FirstTimeConstraint() {
-		return (EAttribute)arcTPEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)arcTPEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -352,7 +352,7 @@ public class HLPNPackageImpl extends EPackageImpl implements HLPNPackage {
 	 * @generated
 	 */
 	public EAttribute getArcTP_SecondTimeConstraint() {
-		return (EAttribute)arcTPEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)arcTPEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -477,8 +477,8 @@ public class HLPNPackageImpl extends EPackageImpl implements HLPNPackage {
 		createEReference(arcTPEClass, ARC_TP__SOURCE);
 		createEReference(arcTPEClass, ARC_TP__TARGET);
 		createEReference(arcTPEClass, ARC_TP__INSCRIPTION);
-		createEAttribute(arcTPEClass, ARC_TP__FIRST_TIME_CONSTRAINT);
 		createEAttribute(arcTPEClass, ARC_TP__SECOND_TIME_CONSTRAINT);
+		createEAttribute(arcTPEClass, ARC_TP__FIRST_TIME_CONSTRAINT);
 
 		contextVariableEClass = createEClass(CONTEXT_VARIABLE);
 		createEReference(contextVariableEClass, CONTEXT_VARIABLE__VARIABLES);
@@ -517,8 +517,8 @@ public class HLPNPackageImpl extends EPackageImpl implements HLPNPackage {
 
 		// Obtain other dependent packages
 		CommonPackage theCommonPackage = (CommonPackage)EPackage.Registry.INSTANCE.getEPackage(CommonPackage.eNS_URI);
-		TokenTypesPackage theTokentypesPackage = (TokenTypesPackage)EPackage.Registry.INSTANCE.getEPackage(TokenTypesPackage.eNS_URI);
-		TokenExpressionsPackage theTokenexpressionsPackage = (TokenExpressionsPackage)EPackage.Registry.INSTANCE.getEPackage(TokenExpressionsPackage.eNS_URI);
+		TokenTypesPackage theTokenTypesPackage = (TokenTypesPackage)EPackage.Registry.INSTANCE.getEPackage(TokenTypesPackage.eNS_URI);
+		TokenExpressionsPackage theTokenExpressionsPackage = (TokenExpressionsPackage)EPackage.Registry.INSTANCE.getEPackage(TokenExpressionsPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -537,41 +537,41 @@ public class HLPNPackageImpl extends EPackageImpl implements HLPNPackage {
 		arcEClass.getESuperTypes().add(theCommonPackage.getINetElement());
 
 		// Initialize classes, features, and operations; add parameters
-		initEClass(highLevelPetriNetEClass, HighLevelPetriNet.class, "HighLevelPetriNet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getHighLevelPetriNet_Nodes(), this.getNode(), this.getNode_Net(), "nodes", null, 0, -1, HighLevelPetriNet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getHighLevelPetriNet_Arcs(), this.getArc(), this.getArc_Net(), "arcs", null, 0, -1, HighLevelPetriNet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(highLevelPetriNetEClass, HighLevelPetriNet.class, "HighLevelPetriNet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getHighLevelPetriNet_Nodes(), this.getNode(), this.getNode_Net(), "nodes", null, 0, -1, HighLevelPetriNet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getHighLevelPetriNet_Arcs(), this.getArc(), this.getArc_Net(), "arcs", null, 0, -1, HighLevelPetriNet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(placeEClass, Place.class, "Place", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPlace_OutArcs(), this.getArcPT(), this.getArcPT_Source(), "outArcs", null, 0, -1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlace_InArcs(), this.getArcTP(), this.getArcTP_Target(), "inArcs", null, 0, -1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPlace_Type(), theTokentypesPackage.getTokenType(), null, "type", null, 1, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(placeEClass, Place.class, "Place", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getPlace_OutArcs(), this.getArcPT(), this.getArcPT_Source(), "outArcs", null, 0, -1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getPlace_InArcs(), this.getArcTP(), this.getArcTP_Target(), "inArcs", null, 0, -1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getPlace_Type(), theTokenTypesPackage.getTokenType(), null, "type", null, 1, 1, Place.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTransition_InArcs(), this.getArcPT(), this.getArcPT_Target(), "inArcs", null, 0, -1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTransition_OutArcs(), this.getArcTP(), this.getArcTP_Source(), "outArcs", null, 0, -1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getTransition_InArcs(), this.getArcPT(), this.getArcPT_Target(), "inArcs", null, 0, -1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getTransition_OutArcs(), this.getArcTP(), this.getArcTP_Source(), "outArcs", null, 0, -1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(arcPTEClass, ArcPT.class, "ArcPT", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getArcPT_Source(), this.getPlace(), this.getPlace_OutArcs(), "source", null, 1, 1, ArcPT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getArcPT_Target(), this.getTransition(), this.getTransition_InArcs(), "target", null, 1, 1, ArcPT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getArcPT_Inscription(), theTokenexpressionsPackage.getTokenVariadicExpression(), null, "inscription", null, 1, 1, ArcPT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(arcPTEClass, ArcPT.class, "ArcPT", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getArcPT_Source(), this.getPlace(), this.getPlace_OutArcs(), "source", null, 1, 1, ArcPT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getArcPT_Target(), this.getTransition(), this.getTransition_InArcs(), "target", null, 1, 1, ArcPT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getArcPT_Inscription(), theTokenExpressionsPackage.getTokenVariadicExpression(), null, "inscription", null, 1, 1, ArcPT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(arcTPEClass, ArcTP.class, "ArcTP", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getArcTP_Source(), this.getTransition(), this.getTransition_OutArcs(), "source", null, 1, 1, ArcTP.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getArcTP_Target(), this.getPlace(), this.getPlace_InArcs(), "target", null, 1, 1, ArcTP.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getArcTP_Inscription(), theTokenexpressionsPackage.getTokenVariadicExpression(), null, "inscription", null, 1, 1, ArcTP.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getArcTP_FirstTimeConstraint(), ecorePackage.getEInt(), "firstTimeConstraint", "0", 0, 1, ArcTP.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getArcTP_SecondTimeConstraint(), ecorePackage.getEInt(), "secondTimeConstraint", "-1", 0, 1, ArcTP.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(arcTPEClass, ArcTP.class, "ArcTP", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getArcTP_Source(), this.getTransition(), this.getTransition_OutArcs(), "source", null, 1, 1, ArcTP.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getArcTP_Target(), this.getPlace(), this.getPlace_InArcs(), "target", null, 1, 1, ArcTP.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getArcTP_Inscription(), theTokenExpressionsPackage.getTokenVariadicExpression(), null, "inscription", null, 1, 1, ArcTP.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getArcTP_SecondTimeConstraint(), ecorePackage.getEInt(), "secondTimeConstraint", "-1", 0, 1, ArcTP.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+		initEAttribute(getArcTP_FirstTimeConstraint(), ecorePackage.getEInt(), "firstTimeConstraint", "0", 0, 1, ArcTP.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 
-		initEClass(contextVariableEClass, ContextVariable.class, "ContextVariable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getContextVariable_Variables(), theTokenexpressionsPackage.getVariable(), theTokenexpressionsPackage.getVariable_Context(), "variables", null, 0, -1, ContextVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(contextVariableEClass, ContextVariable.class, "ContextVariable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getContextVariable_Variables(), theTokenExpressionsPackage.getVariable(), theTokenExpressionsPackage.getVariable_Context(), "variables", null, 0, -1, ContextVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(nodeEClass, Node.class, "Node", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNode_Net(), this.getHighLevelPetriNet(), this.getHighLevelPetriNet_Nodes(), "net", null, 1, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNode_FirstTimeConstraint(), ecorePackage.getEInt(), "firstTimeConstraint", "0", 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNode_SecondTimeConstraint(), ecorePackage.getEInt(), "secondTimeConstraint", "-1", 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(nodeEClass, Node.class, "Node", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getNode_Net(), this.getHighLevelPetriNet(), this.getHighLevelPetriNet_Nodes(), "net", null, 1, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getNode_FirstTimeConstraint(), ecorePackage.getEInt(), "firstTimeConstraint", "0", 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
+		initEAttribute(getNode_SecondTimeConstraint(), ecorePackage.getEInt(), "secondTimeConstraint", "-1", 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$ //$NON-NLS-2$
 
-		initEClass(arcEClass, Arc.class, "Arc", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getArc_Net(), this.getHighLevelPetriNet(), this.getHighLevelPetriNet_Arcs(), "net", null, 1, 1, Arc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(arcEClass, Arc.class, "Arc", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getArc_Net(), this.getHighLevelPetriNet(), this.getHighLevelPetriNet_Arcs(), "net", null, 1, 1, Arc.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		// Create resource
 		createResource(eNS_URI);

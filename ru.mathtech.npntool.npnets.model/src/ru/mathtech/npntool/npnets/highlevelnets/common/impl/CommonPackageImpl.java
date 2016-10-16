@@ -66,13 +66,6 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass iDiagramHolderEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EDataType pointEDataType = null;
 
 	/**
@@ -256,6 +249,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 
 		iEntityIdentifiableEClass = createEClass(IENTITY_IDENTIFIABLE);
 		createEAttribute(iEntityIdentifiableEClass, IENTITY_IDENTIFIABLE__UUID);
+
 		// Create data types
 		rectangleEDataType = createEDataType(RECTANGLE);
 		pointEDataType = createEDataType(POINT);
@@ -285,7 +279,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 		setNsURI(eNS_URI);
 
 		// Create type parameters
-		// Obtain other dependent packages
+
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
@@ -318,7 +312,7 @@ public class CommonPackageImpl extends EPackageImpl implements CommonPackage {
 	 * @generated
 	 */
 	protected void createExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$		
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData"; //$NON-NLS-1$	
 		addAnnotation
 		  (getINetElement_Comment(), 
 		   source, 

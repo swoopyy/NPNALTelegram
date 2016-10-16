@@ -1,10 +1,10 @@
 eclipse.preferences.version=1
 org.eclipse.jdt.core.builder.resourceCopyExclusionFilter=*.uad,*.ucd,*.uld,*.upd,*.cop,*.udd,*.uod,*.usd,*.utd,*.uud,*.ame,*.odd,*.ead,*.ecd,*.eld,*.epd,*.edd,*.eod,*.esd,*.etd,*.eud,*.eame,*.urd*.uml,*.ecore,
 org.eclipse.jdt.core.classpathVariable.ECLIPSE_HOME=/Users/denissamohvalov/Downloads/Eclipse.app/Contents/Eclipse/
-org.eclipse.jdt.core.classpathVariable.EMF_CODEGEN=/Users/denissamohvalov/Downloads/branches/Eliseev/emf-xsd-Update-2.11.1/plugins/org.eclipse.emf.codegen_2.11.0.v20150806-0404.jar
-org.eclipse.jdt.core.classpathVariable.EMF_CODEGEN_ECORE=/Users/denissamohvalov/Downloads/branches/Eliseev/emf-xsd-Update-2.11.1/plugins/org.eclipse.emf.codegen.ecore_2.11.0.v20150806-0404.jar
-org.eclipse.jdt.core.classpathVariable.EMF_COMMON=/Users/denissamohvalov/Downloads/branches/Eliseev/emf-xsd-Update-2.11.1/plugins/org.eclipse.emf.common_2.11.0.v20150805-0538.jar
-org.eclipse.jdt.core.classpathVariable.EMF_ECORE=/Users/denissamohvalov/Downloads/branches/Eliseev/emf-xsd-Update-2.11.1/plugins/org.eclipse.emf.ecore_2.11.1.v20150805-0538.jar
+org.eclipse.jdt.core.classpathVariable.EMF_CODEGEN=/Users/denissamohvalov/Downloads/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.emf.codegen_2.11.0.v20150806-0404.jar
+org.eclipse.jdt.core.classpathVariable.EMF_CODEGEN_ECORE=/Users/denissamohvalov/Downloads/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.emf.codegen.ecore_2.11.0.v20150806-0404.jar
+org.eclipse.jdt.core.classpathVariable.EMF_COMMON=/Users/denissamohvalov/Downloads/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.emf.common_2.11.0.v20150805-0538.jar
+org.eclipse.jdt.core.classpathVariable.EMF_ECORE=/Users/denissamohvalov/Downloads/Eclipse.app/Contents/Eclipse/plugins/org.eclipse.emf.ecore_2.11.1.v20150805-0538.jar
 org.eclipse.jdt.core.classpathVariable.JRE_LIB=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/jre/lib/rt.jar
 org.eclipse.jdt.core.classpathVariable.JRE_SRC=/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/src.zip
 org.eclipse.jdt.core.classpathVariable.JRE_SRCROOT=src

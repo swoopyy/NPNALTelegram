@@ -2,6 +2,7 @@
  */
 package ru.mathtech.npntool.npnets.highlevelnets.hlpn.impl;
 
+import java.util.UUID;
 import ru.mathtech.npntool.npnets.highlevelnets.hlpn.ArcTP;
 import ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage;
 import ru.mathtech.npntool.npnets.highlevelnets.hlpn.Place;
@@ -27,8 +28,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link ru.mathtech.npntool.npnets.highlevelnets.hlpn.impl.ArcTPImpl#getSource <em>Source</em>}</li>
  *   <li>{@link ru.mathtech.npntool.npnets.highlevelnets.hlpn.impl.ArcTPImpl#getTarget <em>Target</em>}</li>
  *   <li>{@link ru.mathtech.npntool.npnets.highlevelnets.hlpn.impl.ArcTPImpl#getInscription <em>Inscription</em>}</li>
- *   <li>{@link ru.mathtech.npntool.npnets.highlevelnets.hlpn.impl.ArcTPImpl#getFirstTimeConstraint <em>First Time Constraint</em>}</li>
  *   <li>{@link ru.mathtech.npntool.npnets.highlevelnets.hlpn.impl.ArcTPImpl#getSecondTimeConstraint <em>Second Time Constraint</em>}</li>
+ *   <li>{@link ru.mathtech.npntool.npnets.highlevelnets.hlpn.impl.ArcTPImpl#getFirstTimeConstraint <em>First Time Constraint</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,24 +67,37 @@ public class ArcTPImpl extends ArcImpl implements ArcTP {
 	protected TokenVariadicExpression inscription;
 
 	/**
-	 * The default value of the '{@link #getFirstTimeConstraint() <em>First Time Constraint</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFirstTimeConstraint()
+	 * ID's prefix  
 	 * @generated
-	 * @ordered
 	 */
-	protected static final int FIRST_TIME_CONSTRAINT_EDEFAULT = 0;
+    protected static final String prefixUUID = "";
 
 	/**
-	 * The cached value of the '{@link #getFirstTimeConstraint() <em>First Time Constraint</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFirstTimeConstraint()
+	 * ID's counter
 	 * @generated
-	 * @ordered
 	 */
-	protected int firstTimeConstraint = FIRST_TIME_CONSTRAINT_EDEFAULT;
+    protected static long counterUUID = 0;
+
+	/**
+    * Generate a unique UUID based on the current time
+    * @generated
+    */
+
+	protected synchronized String generateUUIDByTime() {
+	  short cur = (short)System.currentTimeMillis();
+	  if (cur<0) cur = (short)-cur;
+	  return prefixUUID + cur + counterUUID++;
+	}
+
+	/**
+    * Generate a unique UUID
+    * @generated
+    */
+	
+	protected synchronized String generateUUID() {
+	  String res = "npn" + UUID.randomUUID().toString();
+	  return res;
+	}
 
 	/**
 	 * The default value of the '{@link #getSecondTimeConstraint() <em>Second Time Constraint</em>}' attribute.
@@ -106,12 +120,34 @@ public class ArcTPImpl extends ArcImpl implements ArcTP {
 	protected int secondTimeConstraint = SECOND_TIME_CONSTRAINT_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getFirstTimeConstraint() <em>First Time Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFirstTimeConstraint()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int FIRST_TIME_CONSTRAINT_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getFirstTimeConstraint() <em>First Time Constraint</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFirstTimeConstraint()
+	 * @generated
+	 * @ordered
+	 */
+	protected int firstTimeConstraint = FIRST_TIME_CONSTRAINT_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ArcTPImpl() {
 		super();
+  
+  
 	}
 
 	/**
@@ -383,10 +419,10 @@ public class ArcTPImpl extends ArcImpl implements ArcTP {
 				return basicGetTarget();
 			case HLPNPackage.ARC_TP__INSCRIPTION:
 				return getInscription();
-			case HLPNPackage.ARC_TP__FIRST_TIME_CONSTRAINT:
-				return getFirstTimeConstraint();
 			case HLPNPackage.ARC_TP__SECOND_TIME_CONSTRAINT:
 				return getSecondTimeConstraint();
+			case HLPNPackage.ARC_TP__FIRST_TIME_CONSTRAINT:
+				return getFirstTimeConstraint();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -408,11 +444,11 @@ public class ArcTPImpl extends ArcImpl implements ArcTP {
 			case HLPNPackage.ARC_TP__INSCRIPTION:
 				setInscription((TokenVariadicExpression)newValue);
 				return;
-			case HLPNPackage.ARC_TP__FIRST_TIME_CONSTRAINT:
-				setFirstTimeConstraint((Integer)newValue);
-				return;
 			case HLPNPackage.ARC_TP__SECOND_TIME_CONSTRAINT:
 				setSecondTimeConstraint((Integer)newValue);
+				return;
+			case HLPNPackage.ARC_TP__FIRST_TIME_CONSTRAINT:
+				setFirstTimeConstraint((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -435,11 +471,11 @@ public class ArcTPImpl extends ArcImpl implements ArcTP {
 			case HLPNPackage.ARC_TP__INSCRIPTION:
 				setInscription((TokenVariadicExpression)null);
 				return;
-			case HLPNPackage.ARC_TP__FIRST_TIME_CONSTRAINT:
-				setFirstTimeConstraint(FIRST_TIME_CONSTRAINT_EDEFAULT);
-				return;
 			case HLPNPackage.ARC_TP__SECOND_TIME_CONSTRAINT:
 				setSecondTimeConstraint(SECOND_TIME_CONSTRAINT_EDEFAULT);
+				return;
+			case HLPNPackage.ARC_TP__FIRST_TIME_CONSTRAINT:
+				setFirstTimeConstraint(FIRST_TIME_CONSTRAINT_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -459,10 +495,10 @@ public class ArcTPImpl extends ArcImpl implements ArcTP {
 				return target != null;
 			case HLPNPackage.ARC_TP__INSCRIPTION:
 				return inscription != null;
-			case HLPNPackage.ARC_TP__FIRST_TIME_CONSTRAINT:
-				return firstTimeConstraint != FIRST_TIME_CONSTRAINT_EDEFAULT;
 			case HLPNPackage.ARC_TP__SECOND_TIME_CONSTRAINT:
 				return secondTimeConstraint != SECOND_TIME_CONSTRAINT_EDEFAULT;
+			case HLPNPackage.ARC_TP__FIRST_TIME_CONSTRAINT:
+				return firstTimeConstraint != FIRST_TIME_CONSTRAINT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -477,10 +513,10 @@ public class ArcTPImpl extends ArcImpl implements ArcTP {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (firstTimeConstraint: ");
-		result.append(firstTimeConstraint);
-		result.append(", secondTimeConstraint: ");
+		result.append(" (secondTimeConstraint: "); //$NON-NLS-1$
 		result.append(secondTimeConstraint);
+		result.append(", firstTimeConstraint: "); //$NON-NLS-1$
+		result.append(firstTimeConstraint);
 		result.append(')');
 		return result.toString();
 	}

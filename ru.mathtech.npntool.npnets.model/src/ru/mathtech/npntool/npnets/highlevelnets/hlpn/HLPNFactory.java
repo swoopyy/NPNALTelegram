@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see ru.mathtech.npntool.npnets.highlevelnets.HLPN.HlpnPackage
+ * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage
  * @generated
  */
 public interface HLPNFactory extends EFactory {

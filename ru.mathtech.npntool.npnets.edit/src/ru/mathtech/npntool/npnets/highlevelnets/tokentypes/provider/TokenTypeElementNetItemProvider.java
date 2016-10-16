@@ -31,14 +31,7 @@ import ru.mathtech.npntool.npnets.npndiagrams.NPNDiagramsFactory;
  * @generated
  */
 public class TokenTypeElementNetItemProvider
-	extends TokenTypeItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource,
-		ITableItemLabelProvider {
+	extends TokenTypeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -78,7 +71,6 @@ public class TokenTypeElementNetItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(TokenTypesPackage.Literals.TOKEN_TYPE_ELEMENT_NET__ELEMENT_NET_MARKEDS);
 			childrenFeatures.add(TokenTypesPackage.Literals.TOKEN_TYPE_ELEMENT_NET__NET);
-			childrenFeatures.add(TokenTypesPackage.Literals.TOKEN_TYPE_ELEMENT_NET__DIAGRAM);
 			childrenFeatures.add(TokenTypesPackage.Literals.TOKEN_TYPE_ELEMENT_NET__TOKEN_NETS);
 		}
 		return childrenFeatures;
@@ -136,7 +128,6 @@ public class TokenTypeElementNetItemProvider
 		switch (notification.getFeatureID(TokenTypeElementNet.class)) {
 			case TokenTypesPackage.TOKEN_TYPE_ELEMENT_NET__ELEMENT_NET_MARKEDS:
 			case TokenTypesPackage.TOKEN_TYPE_ELEMENT_NET__NET:
-			case TokenTypesPackage.TOKEN_TYPE_ELEMENT_NET__DIAGRAM:
 			case TokenTypesPackage.TOKEN_TYPE_ELEMENT_NET__TOKEN_NETS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -164,10 +155,6 @@ public class TokenTypeElementNetItemProvider
 			(createChildParameter
 				(TokenTypesPackage.Literals.TOKEN_TYPE_ELEMENT_NET__NET,
 				 HLPNFactory.eINSTANCE.createHighLevelPetriNet()));
-		newChildDescriptors.add
-		(createChildParameter
-			(TokenTypesPackage.Literals.TOKEN_TYPE_ELEMENT_NET__DIAGRAM,
-			 NPNDiagramsFactory.eINSTANCE.createNPNDiagramNetSystem()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -38,16 +38,6 @@ public interface CommonPackage extends EPackage {
 	String eNAME = "common";
 	
 	/**
-	 * The meta object id for the '{@link ru.mathtech.npntool.npnets.highlevelnets.common.IDiagramHolder <em>IDiagram Holder</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see ru.mathtech.npntool.npnets.highlevelnets.common.IDiagramHolder
-	 * @see ru.mathtech.npntool.npnets.highlevelnets.common.impl.CommonPackageImpl#getIDiagramHolder()
-	 * @generated
-	 */
-	int IDIAGRAM_HOLDER = 4;
-
-	/**
 	 * The package namespace URI.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

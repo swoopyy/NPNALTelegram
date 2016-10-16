@@ -27,13 +27,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class PlaceItemProvider
-	extends NodeItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends NodeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -73,8 +67,8 @@ public class PlaceItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Place_outArcs_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Place_outArcs_feature", "_UI_Place_type"),
+				 getString("_UI_Place_outArcs_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Place_outArcs_feature", "_UI_Place_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 HLPNPackage.Literals.PLACE__OUT_ARCS,
 				 true,
 				 false,
@@ -95,8 +89,8 @@ public class PlaceItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Place_inArcs_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Place_inArcs_feature", "_UI_Place_type"),
+				 getString("_UI_Place_inArcs_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Place_inArcs_feature", "_UI_Place_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 HLPNPackage.Literals.PLACE__IN_ARCS,
 				 true,
 				 false,
@@ -117,8 +111,8 @@ public class PlaceItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Place_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Place_type_feature", "_UI_Place_type"),
+				 getString("_UI_Place_type_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Place_type_feature", "_UI_Place_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 HLPNPackage.Literals.PLACE__TYPE,
 				 true,
 				 false,
@@ -136,7 +130,7 @@ public class PlaceItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Place"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Place")); //$NON-NLS-1$
 	}
 
 	/**
@@ -149,8 +143,8 @@ public class PlaceItemProvider
 	public String getText(Object object) {
 		String label = ((Place)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Place_type") :
-			getString("_UI_Place_type") + " " + label;
+			getString("_UI_Place_type") : //$NON-NLS-1$
+			getString("_UI_Place_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  * </p>
  *
- * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HlpnPackage#getContextVariable()
+ * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage#getContextVariable()
  * @model abstract="true"
  * @generated
  */
@@ -36,7 +36,7 @@ public interface ContextVariable extends IEntityIdentifiable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Variables</em>' containment reference list.
-	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HlpnPackage#getContextVariable_Variables()
+	 * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage#getContextVariable_Variables()
 	 * @see ru.mathtech.npntool.npnets.highlevelnets.tokenexpressions.Variable#getContext
 	 * @model opposite="context" containment="true"
 	 * @generated

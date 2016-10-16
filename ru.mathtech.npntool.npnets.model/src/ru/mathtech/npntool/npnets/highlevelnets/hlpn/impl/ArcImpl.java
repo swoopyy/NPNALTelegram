@@ -2,6 +2,7 @@
  */
 package ru.mathtech.npntool.npnets.highlevelnets.hlpn.impl;
 
+import java.util.UUID;
 import ru.mathtech.npntool.npnets.highlevelnets.common.impl.INetElementImpl;
 
 import ru.mathtech.npntool.npnets.highlevelnets.hlpn.Arc;
@@ -25,7 +26,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link ru.mathtech.npntool.npnets.highlevelnets.HLPN.impl.ArcImpl#getNet <em>Net</em>}</li>
+ *   <li>{@link ru.mathtech.npntool.npnets.highlevelnets.hlpn.impl.ArcImpl#getNet <em>Net</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,12 +34,46 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public abstract class ArcImpl extends INetElementImpl implements Arc {
 	/**
+	 * ID's prefix  
+	 * @generated
+	 */
+    protected static final String prefixUUID = "";
+	/**
+	 * ID's counter
+	 * @generated
+	 */
+    protected static long counterUUID = 0;
+
+	/**
+    * Generate a unique UUID based on the current time
+    * @generated
+    */
+
+	protected synchronized String generateUUIDByTime() {
+	  short cur = (short)System.currentTimeMillis();
+	  if (cur<0) cur = (short)-cur;
+	  return prefixUUID + cur + counterUUID++;
+	}
+
+	/**
+    * Generate a unique UUID
+    * @generated
+    */
+	
+	protected synchronized String generateUUID() {
+	  String res = "npn" + UUID.randomUUID().toString();
+	  return res;
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ArcImpl() {
 		super();
+  
+  
 	}
 
 	/**
@@ -58,7 +93,7 @@ public abstract class ArcImpl extends INetElementImpl implements Arc {
 	 */
 	public HighLevelPetriNet getNet() {
 		if (eContainerFeatureID() != HLPNPackage.ARC__NET) return null;
-		return (HighLevelPetriNet)eInternalContainer();
+		return (HighLevelPetriNet)eContainer();
 	}
 
 	/**
@@ -79,7 +114,7 @@ public abstract class ArcImpl extends INetElementImpl implements Arc {
 	public void setNet(HighLevelPetriNet newNet) {
 		if (newNet != eInternalContainer() || (eContainerFeatureID() != HLPNPackage.ARC__NET && newNet != null)) {
 			if (EcoreUtil.isAncestor(this, newNet))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);

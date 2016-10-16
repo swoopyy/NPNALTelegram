@@ -38,14 +38,7 @@ import ru.mathtech.npntool.npnets.highlevelnets.tokentypes.TokenTypesPackage;
  * @generated
  */
 public class ElementNetMarkedItemProvider
-	extends INetElementItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource,
-		ITableItemLabelProvider {
+	extends INetElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

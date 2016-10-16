@@ -1,0 +1,119 @@
+package npnets.simulator.handlers;
+
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import javax.sound.midi.VoiceStatus;
+
+import org.eclipse.core.commands.AbstractHandler;
+import org.eclipse.core.commands.ExecutionEvent;
+import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.viewers.StructuredViewerInternals;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.internal.mozilla.nsDynamicFunctionLoad;
+import org.eclipse.swt.widgets.FileDialog;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.internal.dnd.SwtUtil;
+import org.json.JSONObject;
+
+import npnets.simulator.al.ALCodeLinker;
+import npnets.simulator.simulate.Simulator;
+import ru.mathtech.npntool.npnets.highlevelnets.hlpn.ArcTP;
+import ru.mathtech.npntool.npnets.highlevelnets.hlpn.HighLevelPetriNet;
+import ru.mathtech.npntool.npnets.highlevelnets.hlpn.Node;
+import ru.mathtech.npntool.npnets.highlevelnets.tokentypes.TokenTypeElementNet;
+import ru.mathtech.translator.utils.ALCompiler;
+import ru.mathtech.npntool.npnets.highlevelnets.npnets.model.TransitionWithALCode;
+import ru.mathtech.npntool.npnets.highlevelnets.hlpn.Place;
+import ru.mathtech.npntool.npnets.highlevelnets.hlpn.Transition;
+import ru.mathtech.npntool.npnets.highlevelnets.hlpn.ArcPT;
+
+
+public class NPNGraphicalSimulatorCMCompileHandler extends AbstractHandler{
+	//final String pathToSafe = "/Users/denissamohvalov/Documents/CourseworkMaven/src/main/java/ru/mathtech/translator/test/generated_test.action";
+	@Override
+	public Object execute(ExecutionEvent arg0) throws ExecutionException {
+		HighLevelPetriNet epNet = Simulator.net.getNet().getTypeElementNet().get(0).getNet();
+		HighLevelPetriNet spNet = Simulator.net.getNet().getNetSystem();
+		String code = new ALCodeLinker(epNet, spNet).extractCodeFromElementNet();
+		System.out.println(code);
+		String pathJar = pathToJar();
+		String pathAL = pathForAL(pathJar);
+		writeToFile(pathAL, code);
+		try{
+		ALCompiler compiler = ALCompiler.getInstance();
+		compiler.setFormsJarPath("/Users/denissamohvalov/Documents/CourseworkMaven/src/main/java/ru/mathtech/translator/test/generated.jar!/forms_rt-7.0.3.jar");
+		compiler.setTelegramJarPath("/Users/denissamohvalov/Documents/CourseworkMaven/src/main/java/ru/mathtech/translator/test/generated.jar!/telegrambots-1.0-jar-with-dependencies.jar");
+	
+		compiler.compile(pathAL, pathJar);
+		} catch (Exception ex){
+			MessageDialog dialog = new MessageDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell(),
+					"Error", 
+					null, 
+					ex.getMessage(), 
+					0, 
+					null, 
+					0);
+			dialog.open();
+			ex.printStackTrace();
+			return null;
+		}
+		MessageDialog dialog = new MessageDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell(),
+				"Compiled successfully", 
+				null, 
+				"Compiled!", 
+				0, 
+				null, 
+				0);
+		dialog.open();
+		return null;
+	}
+	
+	private String pathToJar(){
+		FileDialog id = new FileDialog(PlatformUI.getWorkbench().getDisplay().getActiveShell(), SWT.SAVE);
+		id.setFilterNames(new String[] { "jar Files" });
+		id.setFilterExtensions(new String[] { ".jar" });
+		String path = id.open();
+		if (path != null) {
+			return path;
+		}
+		return null;
+	}
+	private void testSPNet(HighLevelPetriNet net){
+		for(Node nd: net.getNodes()){
+			if(nd instanceof TransitionWithALCode){
+				TransitionWithALCode tr = (TransitionWithALCode)nd;
+				System.out.println(tr.getCode());
+			}
+		}
+	}
+	
+	private String pathForAL(String pathForJar){
+		int jarInd = pathForJar.indexOf(".jar");
+		return pathForJar.substring(0, jarInd) + ".al";
+	}
+	
+	
+	private void writeToFile(String path, String code){
+		PrintWriter pntr;
+		try {
+			pntr = new PrintWriter(path, "UTF-8");
+			pntr.println(code);
+			pntr.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+
+}

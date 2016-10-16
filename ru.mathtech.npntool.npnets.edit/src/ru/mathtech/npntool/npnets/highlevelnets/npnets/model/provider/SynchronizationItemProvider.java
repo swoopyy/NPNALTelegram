@@ -28,19 +28,13 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link ru.mathtech.npntool.npnets.highlevelnets.npnets.Synchronization} object.
+ * This is the item provider adapter for a {@link ru.mathtech.npntool.npnets.highlevelnets.npnets.model.Synchronization} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
 public class SynchronizationItemProvider
-	extends INetElementItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends INetElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -80,8 +74,8 @@ public class SynchronizationItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Synchronization_kind_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Synchronization_kind_feature", "_UI_Synchronization_type"),
+				 getString("_UI_Synchronization_kind_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Synchronization_kind_feature", "_UI_Synchronization_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 NPNetsPackage.Literals.SYNCHRONIZATION__KIND,
 				 true,
 				 false,
@@ -102,8 +96,8 @@ public class SynchronizationItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Synchronization_key_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Synchronization_key_feature", "_UI_Synchronization_type"),
+				 getString("_UI_Synchronization_key_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Synchronization_key_feature", "_UI_Synchronization_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 NPNetsPackage.Literals.SYNCHRONIZATION__KEY,
 				 true,
 				 false,
@@ -124,8 +118,8 @@ public class SynchronizationItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Synchronization_involved_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Synchronization_involved_feature", "_UI_Synchronization_type"),
+				 getString("_UI_Synchronization_involved_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Synchronization_involved_feature", "_UI_Synchronization_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 NPNetsPackage.Literals.SYNCHRONIZATION__INVOLVED,
 				 true,
 				 false,
@@ -143,7 +137,7 @@ public class SynchronizationItemProvider
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Synchronization"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Synchronization")); //$NON-NLS-1$
 	}
 
 	/**
@@ -156,8 +150,8 @@ public class SynchronizationItemProvider
 	public String getText(Object object) {
 		String label = ((Synchronization)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Synchronization_type") :
-			getString("_UI_Synchronization_type") + " " + label;
+			getString("_UI_Synchronization_type") : //$NON-NLS-1$
+			getString("_UI_Synchronization_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

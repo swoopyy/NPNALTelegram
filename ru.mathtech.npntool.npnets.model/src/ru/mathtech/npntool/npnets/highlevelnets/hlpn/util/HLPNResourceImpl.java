@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
  * <!-- begin-user-doc -->
  * The <b>Resource </b> associated with the package.
  * <!-- end-user-doc -->
- * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.util.HlpnResourceFactoryImpl
+ * @see ru.mathtech.npntool.npnets.highlevelnets.hlpn.util.HLPNResourceFactoryImpl
  * @generated
  */
 public class HLPNResourceImpl extends XMLResourceImpl {

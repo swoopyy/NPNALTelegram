@@ -14,6 +14,7 @@ import ru.mathtech.npntool.npnets.highlevelnets.hlpn.Transition;
 
 import java.util.Collection;
 
+import java.util.UUID;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -149,12 +150,47 @@ public class TransitionImpl extends ContextVariableImpl implements Transition {
 	protected EList<ArcTP> outArcs;
 
 	/**
+	 * ID's prefix  
+	 * @generated
+	 */
+    protected static final String prefixUUID = "";
+
+	/**
+	 * ID's counter
+	 * @generated
+	 */
+    protected static long counterUUID = 0;
+
+	/**
+    * Generate a unique UUID based on the current time
+    * @generated
+    */
+
+	protected synchronized String generateUUIDByTime() {
+	  short cur = (short)System.currentTimeMillis();
+	  if (cur<0) cur = (short)-cur;
+	  return prefixUUID + cur + counterUUID++;
+	}
+
+	/**
+    * Generate a unique UUID
+    * @generated
+    */
+	
+	protected synchronized String generateUUID() {
+	  String res = "npn" + UUID.randomUUID().toString();
+	  return res;
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected TransitionImpl() {
 		super();
+  
+  
 	}
 
 	/**
@@ -216,7 +252,7 @@ public class TransitionImpl extends ContextVariableImpl implements Transition {
 	 */
 	public HighLevelPetriNet getNet() {
 		if (eContainerFeatureID() != HLPNPackage.TRANSITION__NET) return null;
-		return (HighLevelPetriNet)eInternalContainer();
+		return (HighLevelPetriNet)eContainer();
 	}
 
 	/**
@@ -237,7 +273,7 @@ public class TransitionImpl extends ContextVariableImpl implements Transition {
 	public void setNet(HighLevelPetriNet newNet) {
 		if (newNet != eInternalContainer() || (eContainerFeatureID() != HLPNPackage.TRANSITION__NET && newNet != null)) {
 			if (EcoreUtil.isAncestor(this, newNet))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString()); //$NON-NLS-1$
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
@@ -550,13 +586,13 @@ public class TransitionImpl extends ContextVariableImpl implements Transition {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (name: ");
+		result.append(" (name: "); //$NON-NLS-1$
 		result.append(name);
-		result.append(", comment: ");
+		result.append(", comment: "); //$NON-NLS-1$
 		result.append(comment);
-		result.append(", firstTimeConstraint: ");
+		result.append(", firstTimeConstraint: "); //$NON-NLS-1$
 		result.append(firstTimeConstraint);
-		result.append(", secondTimeConstraint: ");
+		result.append(", secondTimeConstraint: "); //$NON-NLS-1$
 		result.append(secondTimeConstraint);
 		result.append(')');
 		return result.toString();

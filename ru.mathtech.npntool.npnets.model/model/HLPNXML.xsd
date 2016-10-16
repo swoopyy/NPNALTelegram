@@ -20,9 +20,7 @@
         <xsd:attribute name="outArcs" type="xsd:string"/>
         <xsd:attribute name="inArcs" type="xsd:string"/>
         <xsd:attribute name="type" type="xsd:string"/>
-        <xsd:attribute name="firstTimeConstraint" type="xsd:int"/>
-		<xsd:attribute name="secondTimeConstraint" type="xsd:int"/>
-            </xsd:extension>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="Place" type="hlpn:Place"/>
@@ -31,12 +29,12 @@
       <xsd:extension base="hlpn:ContextVariable">
         <xsd:attribute name="name" type="xsd:string"/>
         <xsd:attribute name="comment" type="xsd:string"/>
+        <xsd:attribute default="0" name="firstTimeConstraint" type="xsd:int"/>
+        <xsd:attribute default="-1" name="secondTimeConstraint" type="xsd:int"/>
         <xsd:attribute name="net" type="xsd:string"/>
         <xsd:attribute name="inArcs" type="xsd:string"/>
         <xsd:attribute name="outArcs" type="xsd:string"/>
-        <xsd:attribute name="firstTimeConstraint" type="xsd:int"/>
-		<xsd:attribute name="secondTimeConstraint" type="xsd:int"/>
-                                  </xsd:extension>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:element name="Transition" type="hlpn:Transition"/>
@@ -58,10 +56,10 @@
         <xsd:sequence>
           <xsd:element maxOccurs="1" minOccurs="1" name="inscription" type="tokenexpressions:TokenVariadicExpression"/>
         </xsd:sequence>
+        <xsd:attribute default="-1" name="secondTimeConstraint" type="xsd:int"/>
+        <xsd:attribute default="0" name="firstTimeConstraint" type="xsd:int"/>
         <xsd:attribute name="source" type="xsd:string"/>
         <xsd:attribute name="target" type="xsd:string"/>
-        <xsd:attribute name="firstTimeConstraint" type="xsd:int"/>
-		<xsd:attribute name="secondTimeConstraint" type="xsd:int"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -78,12 +76,10 @@
   <xsd:complexType abstract="true" name="Node">
     <xsd:complexContent>
       <xsd:extension base="common:INetElement">
-                              
-                
-                    
-                <xsd:attribute name="net" type="xsd:string"/>
-                                                                                                            
-            </xsd:extension>
+        <xsd:attribute default="0" name="firstTimeConstraint" type="xsd:int"/>
+        <xsd:attribute default="-1" name="secondTimeConstraint" type="xsd:int"/>
+        <xsd:attribute name="net" type="xsd:string"/>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
   <xsd:complexType abstract="true" name="Arc">

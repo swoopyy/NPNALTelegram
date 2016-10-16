@@ -30,14 +30,7 @@ import ru.mathtech.npntool.npnets.npndiagrams.NPNDiagramsPackage;
  * @generated
  */
 public class NPNDiagramNPNMarkedItemProvider
-	extends IEntityIdentifiableItemProvider
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource,
-		ITableItemLabelProvider {
+	extends IEntityIdentifiableItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

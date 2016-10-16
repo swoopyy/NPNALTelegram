@@ -2,6 +2,7 @@
  */
 package ru.mathtech.npntool.npnets.highlevelnets.hlpn.impl;
 
+import java.util.UUID;
 import ru.mathtech.npntool.npnets.highlevelnets.hlpn.ArcPT;
 import ru.mathtech.npntool.npnets.highlevelnets.hlpn.HLPNPackage;
 import ru.mathtech.npntool.npnets.highlevelnets.hlpn.Place;
@@ -64,12 +65,47 @@ public class ArcPTImpl extends ArcImpl implements ArcPT {
 	protected TokenVariadicExpression inscription;
 
 	/**
+	 * ID's prefix  
+	 * @generated
+	 */
+    protected static final String prefixUUID = "";
+
+	/**
+	 * ID's counter
+	 * @generated
+	 */
+    protected static long counterUUID = 0;
+
+	/**
+    * Generate a unique UUID based on the current time
+    * @generated
+    */
+
+	protected synchronized String generateUUIDByTime() {
+	  short cur = (short)System.currentTimeMillis();
+	  if (cur<0) cur = (short)-cur;
+	  return prefixUUID + cur + counterUUID++;
+	}
+
+	/**
+    * Generate a unique UUID
+    * @generated
+    */
+	
+	protected synchronized String generateUUID() {
+	  String res = "npn" + UUID.randomUUID().toString();
+	  return res;
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ArcPTImpl() {
 		super();
+  
+  
 	}
 
 	/**
