@@ -1,0 +1,5 @@
+package ru.mathtech.npntool.npnets.highlevelnets.npnets.model;
+
+public interface TransitionWithALCode {
+
+}

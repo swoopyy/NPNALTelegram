@@ -1,0 +1,4 @@
+1462111678638	Rename method 'getTasksWorkflowFromConcurrentPlace'
+1462112008785	Rename method 'collectCodeTillStartTask'
+1462113030920	Rename method 'collectConcurrentCodeFromPlace'
+1462113044400	Rename local variable 'place'

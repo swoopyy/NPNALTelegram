@@ -20,6 +20,7 @@ import npnets.simulator.PropertySource;
 import npnets.simulator.UnwrapPropertySource;
 import npnets.simulator.actions.PlaceAddTokenAction;
 import npnets.simulator.actions.SetTimeConstraintsAction;
+import npnets.simulator.actions.TransitionAddALCodeAction;
 import npnets.simulator.actions.TransitionAddSynchronizationAction;
 import npnets.simulator.factory.NPNEditPartFactory;
 
@@ -280,6 +281,10 @@ public class NetGraphicalEditor extends GraphicalEditorWithFlyoutPalette
 	    getSelectionActions().add(action.getId());
 	    
 	    action = new SetTimeConstraintsAction(this);
+	    getActionRegistry().registerAction(action);
+	    getSelectionActions().add(action.getId());
+	    
+	    action = new TransitionAddALCodeAction(this);
 	    getActionRegistry().registerAction(action);
 	    getSelectionActions().add(action.getId());
 	}

@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.highlevelnets.marking.Marking"/>
-<fullyQualifiedTypeName name="npnets.simulator.simulate.MarkingAdapter"/>
-<fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.highlevelnets.common.INetElement"/>
-<fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.highlevelnets.tokenexpressions.TokenExpressionsPackage"/>
-<fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.highlevelnets.npnets.model.impl.NPNetsPackageImpl"/>
-<fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.npndiagrams.impl.NPNDiagramsPackageImpl"/>
-<fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.npndiagrams.NPNDiagramsPackage"/>
-<fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.highlevelnets.npnets.model.Synchronization"/>
-<fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.highlevelnets.npnets.model.NPNetsPackage"/>
-<fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.edit.npnetsEditPlugin"/>
 <fullyQualifiedTypeName name="org.eclipse.draw2d.PositionConstants"/>
 <fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.highlevelnets.hlpn.Arc"/>
 <fullyQualifiedTypeName name="org.eclipse.gef.commands.Command"/>
@@ -25,13 +15,11 @@
 <fullyQualifiedTypeName name="npnets.simulator.actions.SetTimeConstraintsAction"/>
 <fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.npndiagrams.NPNSymbolPlaceSN"/>
 <fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.npndiagrams.NPNSymbolTransitionSN"/>
-<fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.npndiagrams.NPNSymbolNodeSN"/>
 <fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.npndiagrams.NPNSymbolArcTPSN"/>
 <fullyQualifiedTypeName name="org.eclipse.swt.widgets.Shell"/>
 <fullyQualifiedTypeName name="npnets.simulator.editors.NetGraphicalEditor"/>
 <fullyQualifiedTypeName name="org.eclipse.ui.part.MultiPageEditorPart"/>
 <fullyQualifiedTypeName name="npnets.simulator.simulate.DeadlineViolationException"/>
-<fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.highlevelnets.hlpn.Node"/>
 <fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.highlevelnets.tokentypes.Token"/>
 <fullyQualifiedTypeName name="npnets.simulator.simulate.TokenTimeList"/>
 <fullyQualifiedTypeName name="npnets.simulator.editors.NetSimpleGraphicalEditor"/>
@@ -60,4 +48,16 @@
 <fullyQualifiedTypeName name="java.util.Map.Entry"/>
 <fullyQualifiedTypeName name="org.eclipse.swt.widgets.Display"/>
 <fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.highlevelnets.npnets.model.TransitionSynchronized"/>
+<fullyQualifiedTypeName name="npnets.simulator.factory.ArcFactory"/>
+<fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.highlevelnets.npnets.model.NPnet"/>
+<fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.highlevelnets.hlpn.Node"/>
+<fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.highlevelnets.npnets.model.TransitionWithALCode"/>
+<fullyQualifiedTypeName name="org.eclipse.swt.SWT"/>
+<fullyQualifiedTypeName name="java.io.UnsupportedEncodingException"/>
+<fullyQualifiedTypeName name="org.json.JSONException"/>
+<fullyQualifiedTypeName name="org.json.JSONObject"/>
+<fullyQualifiedTypeName name="org.json.JSONTokener"/>
+<fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.npndiagrams.NPNDiagramNetSystem"/>
+<fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.npndiagrams.NPNSymbolNodeSN"/>
+<fullyQualifiedTypeName name="ru.mathtech.npntool.npnets.npndiagrams.impl.NPNSymbolTransitionSNImpl"/>
 </qualifiedTypeNameHistroy>

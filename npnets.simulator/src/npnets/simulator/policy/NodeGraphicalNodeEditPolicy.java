@@ -11,6 +11,7 @@ import org.eclipse.gef.requests.ReconnectRequest;
 import npnets.simulator.commands.ArcCreateCommand;
 import npnets.simulator.commands.ArcPTCreateCommand;
 import npnets.simulator.commands.ArcTPCreateCommand;
+import npnets.simulator.factory.ArcFactory;
 import npnets.simulator.factory.ArcPTFactory;
 import npnets.simulator.factory.ArcTPFactory;
 import ru.mathtech.npntool.npnets.npndiagrams.NPNSymbolArcSN;
@@ -40,17 +41,21 @@ public class NodeGraphicalNodeEditPolicy extends GraphicalNodeEditPolicy {
 	 
 	  @Override protected Command getConnectionCreateCommand(CreateConnectionRequest request) {
 	    ArcCreateCommand result;// = new ArcCreateCommand();
+	    ArcFactory factory; //my
 	    if (getHost().getModel() instanceof NPNSymbolPlaceSN) {
-	    	request.setFactory(new ArcPTFactory());
+	    	factory = new ArcPTFactory();
+	    	request.setFactory(factory);
 	    	result = new ArcPTCreateCommand();
 	    	((ArcPTCreateCommand) result).setSource((NPNSymbolPlaceSN)getHost().getModel());
 	    } else {
-	    	request.setFactory(new ArcTPFactory());
+	    	factory = new ArcTPFactory();
+	    	request.setFactory(factory);
 	    	result = new ArcTPCreateCommand();
 	    	((ArcTPCreateCommand) result).setSource((NPNSymbolTransitionSN)getHost().getModel());
 	    }
 	    
-	    result.setArc((NPNSymbolArcSN) request.getNewObject());
+	    NPNSymbolArcSN arc = (NPNSymbolArcSN)factory.getNewObject();
+	    result.setArc(arc);
 	    result.setNet(((NPNSymbolNodeSN)getHost().getModel()).getDiagram());
 	    request.setStartCommand(result);
 	    return result;

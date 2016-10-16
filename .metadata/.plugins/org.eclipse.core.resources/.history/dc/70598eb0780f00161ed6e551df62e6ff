@@ -1,0 +1,111 @@
+package npnets.simulator.handlers;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import org.eclipse.core.commands.AbstractHandler;
+import org.eclipse.core.commands.ExecutionEvent;
+import org.eclipse.core.commands.ExecutionException;
+import org.json.JSONObject;
+
+import npnets.simulator.simulate.Simulator;
+import ru.mathtech.npntool.npnets.highlevelnets.hlpn.ArcTP;
+import ru.mathtech.npntool.npnets.highlevelnets.hlpn.HighLevelPetriNet;
+import ru.mathtech.npntool.npnets.highlevelnets.hlpn.Node;
+import ru.mathtech.npntool.npnets.highlevelnets.tokentypes.TokenTypeElementNet;
+import ru.mathtech.npntool.npnets.highlevelnets.npnets.model.TransitionWithALCode;
+import ru.mathtech.npntool.npnets.highlevelnets.hlpn.Place;
+import ru.mathtech.npntool.npnets.highlevelnets.hlpn.Transition;
+import ru.mathtech.npntool.npnets.highlevelnets.hlpn.ArcPT;
+
+
+public class NPNGraphicalSimulatorCMCompileHandler extends AbstractHandler{
+	private HashMap<String, TransitionWithALCode> nameToTrans;
+	private HashMap<String, TransitionWithALCode> uuidToTrans;
+	private HashMap<String, String> uuidToCode;
+	private List<TransitionWithALCode> transitions;
+	private final String TASK = "task";
+	
+
+	@Override
+	public Object execute(ExecutionEvent arg0) throws ExecutionException {
+		for (TokenTypeElementNet nt : Simulator.net.getNet().getTypeElementNet()) {
+			loadCurrentNetTransitionsToMaps(nt.getNet());
+			for (Node nd : nt.getNet().getNodes()) {
+				if(nd instanceof TransitionWithALCode){
+					
+				}
+			}
+		}
+		return null;
+	}
+	
+	private String getTasksWorkflowFromConcurrentPlace(Place place){
+		String s = "";
+		List<Transition> targetTransitions = getTargetTransitions(place.getOutArcs());
+		for(Transition tr: targetTransitions){
+			if(tr instanceof TransitionWithALCode){
+				TransitionWithALCode trAL = (TransitionWithALCode)tr;
+				
+			}
+		}
+		return s;
+	}
+	
+	//private String proceedTasksRecursively()
+	
+	private List<Transition> getSourceTransitions(List<ArcTP> arcs){
+		List<Transition> outList = new ArrayList<Transition>();
+		for(ArcTP arc: arcs){
+			outList.add(arc.getSource());
+		}
+		return outList;
+	}
+	
+	private List<Transition> getTargetTransitions(List<ArcPT> arcs){
+		List<Transition> outList = new ArrayList<Transition>();
+		for(ArcPT arc: arcs){
+			outList.add(arc.getTarget());
+		}
+		return outList;
+	}
+	private void loadCurrentNetTransitionsToMaps(HighLevelPetriNet net){
+		nameToTrans = new HashMap<String, TransitionWithALCode>();
+		uuidToTrans = new HashMap<String, TransitionWithALCode>();
+		uuidToCode = new HashMap<String, String>();
+		transitions = new ArrayList<TransitionWithALCode>();
+		for(Node nd: net.getNodes()){
+			if(nd instanceof TransitionWithALCode){
+				TransitionWithALCode trans = (TransitionWithALCode)nd;
+				String code = extractCodeFromTransition(trans);
+				String transName = extractNameFromTransition(trans);
+				nameToTrans.put(transName, trans);
+				uuidToTrans.put(trans.getUuid(), trans);
+				uuidToCode.put(trans.getUuid(), code);
+			}
+		}
+	}
+	
+	private String extractCodeFromTransition(TransitionWithALCode trans){
+		int lbracket = trans.getCode().indexOf("{");
+		int rbracket = trans.getCode().lastIndexOf("}");
+		if(lbracket == -1 || rbracket == -1){
+			return null;
+		}
+		return trans.getCode().substring(lbracket + 1, rbracket);
+	}
+	
+	private String extractNameFromTransition(TransitionWithALCode trans){
+		int space = trans.getCode().indexOf(" ");
+		int equal = trans.getCode().indexOf("=");
+		int upTo = Math.min(space, equal);
+		return trans.getCode().substring(0, upTo);
+	}
+	private String getCodeFromTokenTypeElementNet(TokenTypeElementNet eNet){
+		StringBuilder bld = new StringBuilder();
+		
+		return bld.toString();
+	}
+
+}

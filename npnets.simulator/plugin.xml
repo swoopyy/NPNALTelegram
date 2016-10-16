@@ -53,6 +53,28 @@
             id="npnets.simulator.Undo"
             name="Undo">
       </command>
+      <command
+      		categoryId="org.eclipse.debug.ui.category.run"
+            defaultHandler="npnets.simulator.handlers.NPNGraphicalSimulatorCMCompileHandler"
+            helpContextId="toggle_mark_occurrences_action_context"
+            id="npnets.simulator.Compile"
+            name="Compile">
+      </command>
+       <command
+      		categoryId="org.eclipse.debug.ui.category.run"
+            defaultHandler="npnets.simulator.handlers.NPNGraphicalSimulatorCMSaveALCodeHandler"
+            helpContextId="toggle_mark_occurrences_action_context"
+            id="npnets.simulator.SaveAL"
+            name="SaveAL">
+      </command>
+       <command
+      		categoryId="org.eclipse.debug.ui.category.run"
+            defaultHandler="npnets.simulator.handlers.NPNGraphicalSimulatorCMLoadALCodeHandler"
+            helpContextId="toggle_mark_occurrences_action_context"
+            id="npnets.simulator.LoadAL"
+            name="LoadAL">
+      </command>
+      
    </extension>
    <extension
          point="org.eclipse.ui.menus">
@@ -83,6 +105,30 @@
                   label="Undo step"
                   style="push"
                   tooltip="Undo previous step">
+            </command>
+             <command
+                  commandId="npnets.simulator.Compile"
+                  helpContextId="toggle_mark_occurrences_action_context"
+                  icon="icons/Compile_icon.gif"
+                  label="Compile AL"
+                  style="push"
+                  tooltip="Compile code">
+            </command>
+            <command
+                  commandId="npnets.simulator.SaveAL"
+                  helpContextId="toggle_mark_occurrences_action_context"
+                  icon="icons/saveas_edit_eclipse.gif"
+                  label="Save AL"
+                  style="push"
+                  tooltip="Save AL">
+            </command>
+            <command
+                  commandId="npnets.simulator.LoadAL"
+                  helpContextId="toggle_mark_occurrences_action_context"
+                  icon="icons/load_al_code.gif"
+                  label="Load AL"
+                  style="push"
+                  tooltip="Load AL">
             </command>
          </toolbar>
       </menuContribution>

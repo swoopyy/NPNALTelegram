@@ -54,7 +54,7 @@ public class TransitionAddSynchronizationCommand extends Command {
 			  tr.setSynchronization(r);
 			  r.getInvolved().add(tr);
 			  transition = tr;
-			  Simulator.changed=true;
+			  Simulator.changed = true;
 		  }
 	  }
 	 
